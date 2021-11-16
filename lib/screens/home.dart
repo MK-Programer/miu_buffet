@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
       drawer: SideBar(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
-        child: TopBar(),
+        child: TopBar(''),
       ),
       extendBodyBehindAppBar:
           true, // to make the background image or color extended to the appbar

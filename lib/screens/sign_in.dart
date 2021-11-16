@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
+import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
 class Signin extends StatelessWidget {
   final _formkey = GlobalKey<State>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: TopBar(''),
+      ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(20.0),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/screens/home.dart';
+import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/screens/sign_in.dart';
 
 main() {
@@ -14,9 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MIU Food Court',
-      initialRoute: '/signin',
+      initialRoute: '/',
       routes: {
         '/': (context) => Home(),
+        '/setting': (context) => Setting(),
         '/signin': (context) => Signin(),
       },
     );

@@ -27,7 +27,9 @@ class SideBar extends StatelessWidget {
               child: new Text('Home'),
               alignment: Alignment(-1.2, 0),
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, '/');
+            },
           ),
           ListTile(
             leading: new Icon(Icons.receipt),
@@ -60,6 +62,16 @@ class SideBar extends StatelessWidget {
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
+          ),
+          ListTile(
+            leading: new Icon(Icons.settings),
+            title: Align(
+              child: new Text('Settings'),
+              alignment: Alignment(-1.2, 0),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/setting');
+            },
           ),
         ],
       ),
