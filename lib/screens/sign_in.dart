@@ -75,7 +75,7 @@ class Signin extends StatelessWidget {
                           TextButton(
                             onPressed: () {},
                             child: Text(
-                              'Create an account',
+                              'Forget Password?',
                               style: TextStyle(
                                 fontFamily: 'Cairo',
                                 fontSize: 15.0,
@@ -86,7 +86,7 @@ class Signin extends StatelessWidget {
                           TextButton(
                             onPressed: () {},
                             child: Text(
-                              'Forget Password',
+                              'Create an account',
                               style: TextStyle(
                                 fontFamily: 'Cairo',
                                 fontSize: 15.0,
