@@ -8,10 +8,12 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: textInputDecoration.copyWith(
-          hintText: 'Search for an item...',
-          prefixIcon: Icon(
-            Icons.search,
-          )),
+        hintText: 'Search for an item...',
+        prefixIcon: Icon(
+          Icons.search,
+          color: Colors.grey,
+        ),
+      ),
     );
   }
 }
