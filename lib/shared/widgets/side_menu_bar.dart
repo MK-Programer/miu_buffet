@@ -22,9 +22,9 @@ class SideBar extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: new Icon(Icons.home),
+            leading: Icon(Icons.home),
             title: Align(
-              child: new Text('Home'),
+              child: Text('Home'),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {
@@ -32,41 +32,51 @@ class SideBar extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: new Icon(Icons.receipt),
+            leading: Icon(Icons.person),
             title: Align(
-              child: new Text('Your orders'),
+              child: Text('My Account'),
+              alignment: Alignment(-1.2, 0),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.receipt),
+            title: Align(
+              child: Text('Your orders'),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
           ),
           ListTile(
-            leading: new Icon(Icons.wallet_membership),
+            leading: Icon(Icons.wallet_membership),
             title: Align(
-              child: new Text('Wallet'),
+              child: Text('Wallet'),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
           ),
           ListTile(
-            leading: new Icon(Icons.help_outline),
+            leading: Icon(Icons.help_outline),
             title: Align(
-              child: new Text('Get Help'),
+              child: Text('Get Help'),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
           ),
           ListTile(
-            leading: new Icon(Icons.info_outline),
+            leading: Icon(Icons.info_outline),
             title: Align(
-              child: new Text('About'),
+              child: Text('About'),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
           ),
           ListTile(
-            leading: new Icon(Icons.settings),
+            leading: Icon(Icons.settings),
             title: Align(
-              child: new Text('Settings'),
+              child: Text('Settings'),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {
