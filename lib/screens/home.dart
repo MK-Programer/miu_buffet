@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/widgets/card.dart';
 import 'package:miu_food_court/shared/widgets/search_bar.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
+import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,13 +11,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SideBar(),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent, // make back ground transparent
-        elevation: 0.0, // used for shadow strength
-        //change the color of the drawer icon
-        iconTheme: IconThemeData(
-          color: Color(0xFFA83332),
-        ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: TopBar(),
       ),
       extendBodyBehindAppBar:
           true, // to make the background image or color extended to the appbar
