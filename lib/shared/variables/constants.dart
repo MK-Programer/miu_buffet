@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const textInputDecoration = InputDecoration(
   hintStyle: TextStyle(
+    fontSize: 15.0,
     fontFamily: 'Cairo',
   ),
   fillColor: Colors.white,
