@@ -5,21 +5,18 @@ class SideBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-        padding: EdgeInsets.zero,
+        padding: EdgeInsets.only(top: 50.0),
         children: [
-          DrawerHeader(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(
-                  Icons.account_box_outlined,
-                  size: 50,
-                ),
-                const Text(
-                  'Hi Guest',
-                ),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/setting');
+                },
+                icon: Icon(Icons.settings),
+              ),
+            ],
           ),
           ListTile(
             leading: Icon(Icons.home),
@@ -44,7 +41,7 @@ class SideBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.receipt),
             title: Align(
-              child: Text('Your orders'),
+              child: Text('My orders'),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
@@ -72,16 +69,6 @@ class SideBar extends StatelessWidget {
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Align(
-              child: Text('Settings'),
-              alignment: Alignment(-1.2, 0),
-            ),
-            onTap: () {
-              Navigator.pushNamed(context, '/setting');
-            },
           ),
         ],
       ),
