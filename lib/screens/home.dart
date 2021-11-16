@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(
                         fontFamily: 'Cairo',
                         fontSize: 30.0,
-                        color: Color(0XFF2D0C57),
+                        color: Color(0xFFA83332),
                       ),
                     ),
                     Container(
