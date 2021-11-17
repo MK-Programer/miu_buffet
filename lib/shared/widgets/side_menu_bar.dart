@@ -34,9 +34,7 @@ class SideBar extends StatelessWidget {
               child: Text('My Account'),
               alignment: Alignment(-1.2, 0),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/');
-            },
+            onTap: () {},
           ),
           ListTile(
             leading: Icon(Icons.receipt),
