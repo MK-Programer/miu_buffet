@@ -9,18 +9,18 @@ class Signin extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
-        child: TopBar(''),
+        child: TopBar('Signin'),
       ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(20.0),
-          child: Column(
+          child: ListView(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text(
-                    'Continue with email...',
+                    'Continue with email',
                     style: TextStyle(
                       fontSize: 25.0,
                       fontFamily: 'Cairo',

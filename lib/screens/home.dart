@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
       drawer: SideBar(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
-        child: TopBar(''),
+        child: TopBar('Delivering to Room : 307'),
       ),
       extendBodyBehindAppBar:
           true, // to make the background image or color extended to the appbar
@@ -38,11 +38,7 @@ class Home extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 30.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                      margin: EdgeInsets.symmetric(vertical: 20.0),
                       child: SearchBar(),
                     ),
                     Expanded(

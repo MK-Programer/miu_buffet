@@ -35,7 +35,7 @@ class _SettingState extends State<Setting> {
                       'Notifications',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 20.0,
+                        fontSize: 15.0,
                         fontFamily: 'Cairo',
                       ),
                     ),
@@ -53,7 +53,7 @@ class _SettingState extends State<Setting> {
                   ],
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.black,
               ),
               TextButton(
@@ -63,7 +63,25 @@ class _SettingState extends State<Setting> {
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 15.0,
+                    fontFamily: 'Cairo',
+                  ),
+                ),
+                style: TextButton.styleFrom(
+                  minimumSize: Size.fromHeight(40),
+                  primary: Colors.black,
+                  alignment: Alignment.centerLeft,
+                ),
+              ),
+              const Divider(
+                color: Colors.black,
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Signup',
+                  style: TextStyle(
+                    fontSize: 15.0,
                     fontFamily: 'Cairo',
                   ),
                 ),
