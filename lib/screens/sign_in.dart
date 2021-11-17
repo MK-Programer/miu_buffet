@@ -16,17 +16,19 @@ class Signin extends StatelessWidget {
           padding: EdgeInsets.all(20.0),
           child: ListView(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Continue with email',
-                    style: TextStyle(
-                      fontSize: 25.0,
-                      fontFamily: 'Cairo',
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Continue with email',
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        fontFamily: 'Cairo',
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Container(
                 child: Form(

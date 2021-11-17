@@ -20,3 +20,7 @@ const textInputDecoration = InputDecoration(
     ),
   ),
 );
+
+//const variable responsible for font family
+
+//const variable responsible for font size

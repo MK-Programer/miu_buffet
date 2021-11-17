@@ -16,49 +16,50 @@ class CategoryCard extends StatelessWidget {
           print('pressed');
         },
         child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(13),
-            ),
-            child: Stack(
-              children: [
-                Image.asset(
-                  'assets/pictures/${this._image}',
-                  width: double.infinity,
-                  height: 250,
-                  fit: BoxFit.cover,
-                ),
-                Positioned(
-                  bottom: 5,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    width: 300,
-                    color: Colors.black54,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${this._name}',
-                          style: TextStyle(
-                            fontFamily: 'Cairo',
-                            fontSize: 20.0,
-                            color: Colors.white,
-                          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(13),
+          ),
+          child: Stack(
+            children: [
+              Image.asset(
+                'assets/pictures/${this._image}',
+                width: double.infinity,
+                height: 250,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                bottom: 5,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  width: 300,
+                  color: Colors.black54,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${this._name}',
+                        style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontSize: 20.0,
+                          color: Colors.white,
                         ),
-                        Text(
-                          '${this._quantity}',
-                          style: TextStyle(
-                            fontFamily: 'Cairo',
-                            fontSize: 15.0,
-                            color: Colors.white,
-                          ),
+                      ),
+                      Text(
+                        '${this._quantity}',
+                        style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontSize: 15.0,
+                          color: Colors.white,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                )
-              ],
-            )),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

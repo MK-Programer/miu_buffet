@@ -15,7 +15,6 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     //final Color activeColor = Color(0xFFA83332);
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
