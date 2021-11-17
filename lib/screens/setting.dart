@@ -34,6 +34,7 @@ class _SettingState extends State<Setting> {
                     const Text(
                       'Notifications',
                       style: TextStyle(
+                        color: Colors.black,
                         fontSize: 20.0,
                         fontFamily: 'Cairo',
                       ),
