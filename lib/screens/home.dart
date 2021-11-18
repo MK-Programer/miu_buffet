@@ -9,6 +9,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double cardWidth = MediaQuery.of(context).size.width;
+    double cardHeight = MediaQuery.of(context).size.height / 1.2;
     return Scaffold(
       drawer: SideBar(),
       appBar: PreferredSize(
@@ -21,47 +23,46 @@ class Home extends StatelessWidget {
         decoration: BoxDecoration(
           color: Color(0xFFF6F5F5),
         ),
-        child: Stack(
-          children: [
-            SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Categories',
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        fontSize: 30.0,
-                        color: Color(0xFFA83332),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 20.0),
-                      child: SearchBar(),
-                    ),
-                    Expanded(
-                      child: GridView.count(
-                        crossAxisCount: 2,
-                        childAspectRatio: .85,
-                        crossAxisSpacing: 20,
-                        mainAxisSpacing: 20,
-                        children: [
-                          CategoryCard('hot-drinks.jpg', 'Coffee', 45),
-                          CategoryCard('cold-drinks.png', 'Soft Drinks', 40),
-                          CategoryCard('snacks.jpeg', 'Snacks', 35),
-                          CategoryCard('tee.jpg', 'Tee', 30),
-                          //CategoryCard('hot-drinks.jpg', 'Hot Drinks', 25),
-                          //CategoryCard('hot-drinks.jpg', 'Hot Drinks', 20),
-                        ],
-                      ),
-                    ),
-                  ],
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Categories',
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    fontSize: 30.0,
+                    color: Color(0xFFA83332),
+                  ),
                 ),
-              ),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 20.0),
+                  child: SearchBar(),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                Expanded(
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    childAspectRatio: cardWidth / cardHeight,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                    children: [
+                      CategoryCard('hot-drinks.jpg', 'Coffee', 45),
+                      CategoryCard('cold-drinks.png', 'Soft Drinks', 40),
+                      CategoryCard('snacks.jpeg', 'Snacks', 35),
+                      CategoryCard('tee.jpg', 'Tee', 30),
+                      //CategoryCard('hot-drinks.jpg', 'Hot Drinks', 25),
+                      //CategoryCard('hot-drinks.jpg', 'Hot Drinks', 20),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

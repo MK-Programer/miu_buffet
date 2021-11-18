@@ -24,15 +24,15 @@ class CategoryCard extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/pictures/${this._image}',
-                width: double.infinity,
-                height: 250,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
                 fit: BoxFit.cover,
               ),
               Positioned(
                 bottom: 5,
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  width: 300,
+                  width: MediaQuery.of(context).size.width,
                   color: Colors.black54,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
