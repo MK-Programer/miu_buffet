@@ -87,17 +87,6 @@ class Signin extends StatelessWidget {
                             ),
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Create an account',
-                            style: TextStyle(
-                              fontFamily: 'Cairo',
-                              fontSize: 15.0,
-                              color: Color(0xFFA83332),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   ],

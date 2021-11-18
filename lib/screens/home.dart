@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double cardWidth = MediaQuery.of(context).size.width;
-    double cardHeight = MediaQuery.of(context).size.height / 1.2;
+    double cardHeight = MediaQuery.of(context).size.height / 1.5;
     return Scaffold(
       drawer: SideBar(),
       appBar: PreferredSize(

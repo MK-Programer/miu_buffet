@@ -12,7 +12,7 @@ class TopBar extends StatelessWidget {
         style: TextStyle(
           color: Colors.black,
           fontFamily: 'Cairo',
-          fontSize: 15.0,
+          fontSize: 20.0,
         ),
       ),
       centerTitle: true,
