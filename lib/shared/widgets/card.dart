@@ -29,7 +29,7 @@ class CategoryCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Positioned(
-                bottom: 5,
+                bottom: 2,
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   width: MediaQuery.of(context).size.width,

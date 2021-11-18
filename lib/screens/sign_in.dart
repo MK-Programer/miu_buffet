@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
-class Signin extends StatelessWidget {
-  final _formkey = GlobalKey<State>();
+class Signin extends StatefulWidget {
+  @override
+  _SigninState createState() => _SigninState();
+}
+
+class _SigninState extends State<Signin> {
+  final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +69,15 @@ class Signin extends StatelessWidget {
                       height: 15.0,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_formkey.currentState!.validate()) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Processing Data'),
+                            ),
+                          );
+                        }
+                      },
                       child: Text(
                         'Login',
                       ),
