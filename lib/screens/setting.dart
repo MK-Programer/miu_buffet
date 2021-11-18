@@ -26,31 +26,29 @@ class _SettingState extends State<Setting> {
           padding: EdgeInsets.only(left: 20.0, right: 20.0),
           child: Column(
             children: [
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Notifications',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15.0,
-                        fontFamily: 'Cairo',
-                      ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Notifications',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15.0,
+                      fontFamily: 'Cairo',
                     ),
-                    Switch(
-                      value: isSwitched,
-                      onChanged: (value) {
-                        setState(() {
-                          isSwitched = value;
-                          print(isSwitched);
-                        });
-                      },
-                      activeTrackColor: Color(0xFFA83332),
-                      activeColor: Color(0xFFA83332),
-                    ),
-                  ],
-                ),
+                  ),
+                  Switch(
+                    value: isSwitched,
+                    onChanged: (value) {
+                      setState(() {
+                        isSwitched = value;
+                        print(isSwitched);
+                      });
+                    },
+                    activeTrackColor: Color(0xFFA83332),
+                    activeColor: Color(0xFFA83332),
+                  ),
+                ],
               ),
               const Divider(
                 color: Colors.black,
