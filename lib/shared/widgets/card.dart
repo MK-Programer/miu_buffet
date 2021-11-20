@@ -22,11 +22,16 @@ class CategoryCard extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              Image.asset(
-                'assets/pictures/${this._image}',
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                fit: BoxFit.cover,
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(13),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/pictures/${this._image}',
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               Positioned(
                 bottom: 2,
