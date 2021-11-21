@@ -25,11 +25,11 @@ class _SigninState extends State<Signin> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Continue with email',
                     style: TextStyle(
-                      fontSize: 25.0,
-                      fontFamily: 'Cairo',
+                      fontSize: fontSizeH,
+                      fontFamily: fontFamily,
                     ),
                   ),
                 ],
@@ -80,6 +80,10 @@ class _SigninState extends State<Signin> {
                       },
                       child: Text(
                         'Login',
+                        style: TextStyle(
+                          fontFamily: fontFamily,
+                          fontSize: fontSizeS,
+                        ),
                       ),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size.fromHeight(40),
@@ -95,8 +99,8 @@ class _SigninState extends State<Signin> {
                           child: Text(
                             'Forget Password?',
                             style: TextStyle(
-                              fontFamily: 'Cairo',
-                              fontSize: 15.0,
+                              fontFamily: fontFamily,
+                              fontSize: fontSizeS,
                               color: Color(0xFFA83332),
                             ),
                           ),
