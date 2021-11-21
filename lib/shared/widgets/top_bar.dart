@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/shared/variables/constants.dart';
 
 class TopBar extends StatelessWidget {
   final _title;
@@ -11,8 +12,8 @@ class TopBar extends StatelessWidget {
         '${this._title}',
         style: TextStyle(
           color: Colors.black,
-          fontFamily: 'Cairo',
-          fontSize: 20.0,
+          fontFamily: fontFamily,
+          fontSize: fontSizeH,
         ),
       ),
       centerTitle: true,
