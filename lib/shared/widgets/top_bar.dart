@@ -12,7 +12,6 @@ class TopBar extends StatelessWidget {
         '${this._title}',
         style: TextStyle(
           color: Colors.black,
-          fontFamily: fontFamily,
           fontSize: fontSizeH,
         ),
       ),

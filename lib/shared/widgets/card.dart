@@ -46,7 +46,6 @@ class CategoryCard extends StatelessWidget {
                       Text(
                         '${this._name}',
                         style: TextStyle(
-                          fontFamily: fontFamily,
                           fontSize: fontSizeH,
                           color: Colors.white,
                         ),
@@ -54,7 +53,6 @@ class CategoryCard extends StatelessWidget {
                       Text(
                         '${this._quantity}',
                         style: TextStyle(
-                          fontFamily: fontFamily,
                           fontSize: fontSizeS,
                           color: Colors.white,
                         ),

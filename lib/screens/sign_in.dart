@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
+import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
 class Signin extends StatefulWidget {
@@ -17,6 +18,7 @@ class _SigninState extends State<Signin> {
         preferredSize: Size.fromHeight(50.0),
         child: TopBar('Signin'),
       ),
+      drawer: SideBar(),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(20.0),
@@ -28,8 +30,7 @@ class _SigninState extends State<Signin> {
                   Text(
                     'Continue with email',
                     style: TextStyle(
-                      fontSize: fontSizeH,
-                      fontFamily: fontFamily,
+                      fontSize: fontSizeHH,
                     ),
                   ),
                 ],
@@ -81,7 +82,6 @@ class _SigninState extends State<Signin> {
                       child: Text(
                         'Login',
                         style: TextStyle(
-                          fontFamily: fontFamily,
                           fontSize: fontSizeS,
                         ),
                       ),
@@ -99,7 +99,6 @@ class _SigninState extends State<Signin> {
                           child: Text(
                             'Forget Password?',
                             style: TextStyle(
-                              fontFamily: fontFamily,
                               fontSize: fontSizeS,
                               color: Color(0xFFA83332),
                             ),

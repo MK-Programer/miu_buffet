@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:miu_food_court/screens/home.dart';
 import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/screens/sign_in.dart';
+import 'package:miu_food_court/shared/variables/constants.dart';
 
 main() {
   runApp(MyApp());
@@ -15,6 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MIU Food Court',
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFFF6F5F5),
+        fontFamily: fontFamily,
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),

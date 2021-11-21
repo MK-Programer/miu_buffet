@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 const textInputDecoration = InputDecoration(
   hintStyle: TextStyle(
     fontSize: fontSizeS,
-    fontFamily: fontFamily,
   ),
   fillColor: Colors.white,
   filled: true,
@@ -24,6 +23,7 @@ const textInputDecoration = InputDecoration(
 //const variable responsible for font family
 const fontFamily = 'Cairo';
 //const variable responsible for font size
+const fontSizeHH = 30.0;
 const fontSizeH = 20.0;
 const fontSizeM = 18.0;
 const fontSizeS = 15.0;

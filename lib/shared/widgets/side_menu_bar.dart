@@ -26,7 +26,6 @@ class SideBar extends StatelessWidget {
                 'Home',
                 style: TextStyle(
                   fontSize: fontSizeM,
-                  fontFamily: fontFamily,
                 ),
               ),
               alignment: Alignment(-1.2, 0),
@@ -42,7 +41,6 @@ class SideBar extends StatelessWidget {
                 'My Account',
                 style: TextStyle(
                   fontSize: fontSizeM,
-                  fontFamily: fontFamily,
                 ),
               ),
               alignment: Alignment(-1.2, 0),
@@ -56,7 +54,6 @@ class SideBar extends StatelessWidget {
                 'My orders',
                 style: TextStyle(
                   fontSize: fontSizeM,
-                  fontFamily: fontFamily,
                 ),
               ),
               alignment: Alignment(-1.2, 0),
@@ -70,7 +67,6 @@ class SideBar extends StatelessWidget {
                 'Wallet',
                 style: TextStyle(
                   fontSize: fontSizeM,
-                  fontFamily: fontFamily,
                 ),
               ),
               alignment: Alignment(-1.2, 0),
@@ -84,7 +80,6 @@ class SideBar extends StatelessWidget {
                 'Get Help',
                 style: TextStyle(
                   fontSize: fontSizeM,
-                  fontFamily: fontFamily,
                 ),
               ),
               alignment: Alignment(-1.2, 0),
@@ -98,7 +93,6 @@ class SideBar extends StatelessWidget {
                 'About',
                 style: TextStyle(
                   fontSize: fontSizeM,
-                  fontFamily: fontFamily,
                 ),
               ),
               alignment: Alignment(-1.2, 0),

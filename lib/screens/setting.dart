@@ -35,7 +35,6 @@ class _SettingState extends State<Setting> {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: fontSizeS,
-                      fontFamily: fontFamily,
                     ),
                   ),
                   Switch(
@@ -62,7 +61,6 @@ class _SettingState extends State<Setting> {
                   'Login',
                   style: TextStyle(
                     fontSize: fontSizeS,
-                    fontFamily: fontFamily,
                   ),
                 ),
                 style: TextButton.styleFrom(
@@ -80,7 +78,6 @@ class _SettingState extends State<Setting> {
                   'Signup',
                   style: TextStyle(
                     fontSize: fontSizeS,
-                    fontFamily: fontFamily,
                   ),
                 ),
                 style: TextButton.styleFrom(
