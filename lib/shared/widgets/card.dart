@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/shared/variables/constants.dart';
 
 class CategoryCard extends StatelessWidget {
   final String _image;
@@ -45,16 +46,16 @@ class CategoryCard extends StatelessWidget {
                       Text(
                         '${this._name}',
                         style: TextStyle(
-                          fontFamily: 'Cairo',
-                          fontSize: 20.0,
+                          fontFamily: fontFamily,
+                          fontSize: fontSizeH,
                           color: Colors.white,
                         ),
                       ),
                       Text(
                         '${this._quantity}',
                         style: TextStyle(
-                          fontFamily: 'Cairo',
-                          fontSize: 15.0,
+                          fontFamily: fontFamily,
+                          fontSize: fontSizeS,
                           color: Colors.white,
                         ),
                       ),

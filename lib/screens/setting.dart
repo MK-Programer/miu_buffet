@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
@@ -33,8 +34,8 @@ class _SettingState extends State<Setting> {
                     'Notifications',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 15.0,
-                      fontFamily: 'Cairo',
+                      fontSize: fontSizeS,
+                      fontFamily: fontFamily,
                     ),
                   ),
                   Switch(
@@ -60,8 +61,8 @@ class _SettingState extends State<Setting> {
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'Cairo',
+                    fontSize: fontSizeS,
+                    fontFamily: fontFamily,
                   ),
                 ),
                 style: TextButton.styleFrom(
@@ -78,8 +79,8 @@ class _SettingState extends State<Setting> {
                 child: Text(
                   'Signup',
                   style: TextStyle(
-                    fontSize: 15.0,
-                    fontFamily: 'Cairo',
+                    fontSize: fontSizeS,
+                    fontFamily: fontFamily,
                   ),
                 ),
                 style: TextButton.styleFrom(
