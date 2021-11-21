@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/shared/variables/constants.dart';
 
 class SideBar extends StatelessWidget {
   @override
@@ -21,7 +22,13 @@ class SideBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.home),
             title: Align(
-              child: Text('Home'),
+              child: Text(
+                'Home',
+                style: TextStyle(
+                  fontSize: fontSizeM,
+                  fontFamily: fontFamily,
+                ),
+              ),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {
@@ -31,7 +38,13 @@ class SideBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.person),
             title: Align(
-              child: Text('My Account'),
+              child: Text(
+                'My Account',
+                style: TextStyle(
+                  fontSize: fontSizeM,
+                  fontFamily: fontFamily,
+                ),
+              ),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
@@ -39,7 +52,13 @@ class SideBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.receipt),
             title: Align(
-              child: Text('My orders'),
+              child: Text(
+                'My orders',
+                style: TextStyle(
+                  fontSize: fontSizeM,
+                  fontFamily: fontFamily,
+                ),
+              ),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
@@ -47,7 +66,13 @@ class SideBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.wallet_membership),
             title: Align(
-              child: Text('Wallet'),
+              child: Text(
+                'Wallet',
+                style: TextStyle(
+                  fontSize: fontSizeM,
+                  fontFamily: fontFamily,
+                ),
+              ),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
@@ -55,7 +80,13 @@ class SideBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.help_outline),
             title: Align(
-              child: Text('Get Help'),
+              child: Text(
+                'Get Help',
+                style: TextStyle(
+                  fontSize: fontSizeM,
+                  fontFamily: fontFamily,
+                ),
+              ),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
@@ -63,7 +94,13 @@ class SideBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.info_outline),
             title: Align(
-              child: Text('About'),
+              child: Text(
+                'About',
+                style: TextStyle(
+                  fontSize: fontSizeM,
+                  fontFamily: fontFamily,
+                ),
+              ),
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {},
