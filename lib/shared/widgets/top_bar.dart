@@ -3,6 +3,7 @@ import 'package:miu_food_court/shared/variables/constants.dart';
 
 class TopBar extends StatelessWidget {
   final _title;
+
   TopBar(this._title);
 
   @override
@@ -22,6 +23,34 @@ class TopBar extends StatelessWidget {
       iconTheme: IconThemeData(
         color: Color(0xFFA83332),
       ),
+      // will be used to show add to cart only in some screens
+      //actions: [
+      //  Visibility(
+      //    visible: _showHide(),
+      //    child: IconButton(
+      //      icon: Icon(Icons.shopping_cart),
+      //      color: Colors.black,
+      //      onPressed: () {},
+      //    ),
+      //  ),
+      //],
     );
   }
+
+  //_showHide() {
+  //  if (ModalRoute.of(context)!.settings.name == '/') {
+  //    setState(
+  //      () {
+  //        this.isVisible = false;
+  //      },
+  //    );
+  //  } else {
+  //    setState(
+  //      () {
+  //        this.isVisible = true;
+  //      },
+  //    );
+  //  }
+  //  return this.isVisible;
+  //}
 }
