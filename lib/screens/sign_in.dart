@@ -3,12 +3,12 @@ import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
-class Signin extends StatefulWidget {
+class SignIn extends StatefulWidget {
   @override
-  _SigninState createState() => _SigninState();
+  _SignInState createState() => _SignInState();
 }
 
-class _SigninState extends State<Signin> {
+class _SignInState extends State<SignIn> {
   final _formkey = GlobalKey<FormState>();
 
   @override
