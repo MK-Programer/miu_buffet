@@ -16,53 +16,47 @@ class CategoryCard extends StatelessWidget {
         onTap: () {
           print('pressed');
         },
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(13),
-          ),
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(13),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/pictures/${this._image}',
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(13),
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/pictures/${this._image}',
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 2,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                width: MediaQuery.of(context).size.width,
+                color: Colors.black54,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${this._name}',
+                      style: TextStyle(
+                        fontSize: fontSizeH,
+                        color: Colors.white,
+                      ),
                     ),
-                    fit: BoxFit.cover,
-                  ),
+                    Text(
+                      '${this._quantity}',
+                      style: TextStyle(
+                        fontSize: fontSizeS,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Positioned(
-                bottom: 2,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.black54,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '${this._name}',
-                        style: TextStyle(
-                          fontSize: fontSizeH,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        '${this._quantity}',
-                        style: TextStyle(
-                          fontSize: fontSizeS,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

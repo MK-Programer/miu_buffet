@@ -57,6 +57,7 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
+              // bottom navigation bar
             ],
           ),
         ),

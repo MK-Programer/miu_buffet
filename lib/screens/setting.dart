@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/screens/sign_in.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
@@ -55,7 +56,8 @@ class _SettingState extends State<Setting> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/signin');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignIn()));
                 },
                 child: Text(
                   'Login',

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/screens/home.dart';
+import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
 class SideBar extends StatelessWidget {
@@ -13,7 +15,8 @@ class SideBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/setting');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Setting()));
                 },
                 icon: Icon(Icons.settings),
               ),
@@ -31,7 +34,8 @@ class SideBar extends StatelessWidget {
               alignment: Alignment(-1.2, 0),
             ),
             onTap: () {
-              Navigator.pushNamed(context, '/');
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Home()));
             },
           ),
           ListTile(
