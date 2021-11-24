@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/screens/sign_in.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
+import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
@@ -23,6 +23,7 @@ class _SettingState extends State<Setting> {
         child: TopBar('Settings'),
       ),
       drawer: SideBar(),
+      bottomNavigationBar: BottomBar(),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.only(left: 20.0, right: 20.0),

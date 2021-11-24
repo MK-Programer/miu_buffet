@@ -27,3 +27,6 @@ const fontSizeHH = 30.0;
 const fontSizeH = 20.0;
 const fontSizeM = 18.0;
 const fontSizeS = 15.0;
+
+//const variable for text alignment with icons in drawer
+const alignment = Alignment(-1.2, 0);

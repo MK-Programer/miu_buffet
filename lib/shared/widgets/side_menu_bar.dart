@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:miu_food_court/screens/home.dart';
 import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
@@ -22,6 +21,7 @@ class SideBar extends StatelessWidget {
               ),
             ],
           ),
+          /*
           ListTile(
             leading: Icon(Icons.home),
             title: Align(
@@ -38,6 +38,7 @@ class SideBar extends StatelessWidget {
                   context, MaterialPageRoute(builder: (context) => Home()));
             },
           ),
+          
           ListTile(
             leading: Icon(Icons.person),
             title: Align(
@@ -51,6 +52,7 @@ class SideBar extends StatelessWidget {
             ),
             onTap: () {},
           ),
+          */
           ListTile(
             leading: Icon(Icons.receipt),
             title: Align(
@@ -60,7 +62,7 @@ class SideBar extends StatelessWidget {
                   fontSize: fontSizeM,
                 ),
               ),
-              alignment: Alignment(-1.2, 0),
+              alignment: alignment,
             ),
             onTap: () {},
           ),
@@ -73,7 +75,7 @@ class SideBar extends StatelessWidget {
                   fontSize: fontSizeM,
                 ),
               ),
-              alignment: Alignment(-1.2, 0),
+              alignment: alignment,
             ),
             onTap: () {},
           ),
@@ -86,7 +88,7 @@ class SideBar extends StatelessWidget {
                   fontSize: fontSizeM,
                 ),
               ),
-              alignment: Alignment(-1.2, 0),
+              alignment: alignment,
             ),
             onTap: () {},
           ),
@@ -99,7 +101,7 @@ class SideBar extends StatelessWidget {
                   fontSize: fontSizeM,
                 ),
               ),
-              alignment: Alignment(-1.2, 0),
+              alignment: alignment,
             ),
             onTap: () {},
           ),

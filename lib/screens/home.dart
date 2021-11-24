@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
+import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
 import 'package:miu_food_court/shared/widgets/card.dart';
 import 'package:miu_food_court/shared/widgets/search_bar.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
@@ -19,6 +20,7 @@ class Home extends StatelessWidget {
         preferredSize: Size.fromHeight(50.0),
         child: TopBar('Delivering to Room : 307'),
       ),
+      bottomNavigationBar: BottomBar(),
       extendBodyBehindAppBar:
           true, // to make the background image or color extended to the appbar
       body: SafeArea(
