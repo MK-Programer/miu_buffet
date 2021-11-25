@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MIU Food Court',
-      // add background color and fontfamily to whole my app
+      // add background color and font-family to whole my app
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFF6F5F5),
         fontFamily: fontFamily,

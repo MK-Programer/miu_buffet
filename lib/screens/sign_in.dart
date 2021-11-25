@@ -30,7 +30,7 @@ class _SignInState extends State<SignIn> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Continue with email',
+                    'SignIn',
                     style: TextStyle(
                       fontSize: fontSizeHH,
                     ),

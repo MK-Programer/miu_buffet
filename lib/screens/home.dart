@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
                     CategoryCard('hot-drinks.jpg', 'Coffee', 45),
                     CategoryCard('cold-drinks.png', 'Soft Drinks', 40),
                     CategoryCard('snacks.jpeg', 'Snacks', 35),
-                    CategoryCard('tee.jpg', 'Tee', 30),
+                    CategoryCard('tea.jpg', 'Tea', 30),
                     //CategoryCard('hot-drinks.jpg', 'Hot Drinks', 25),
                     //CategoryCard('hot-drinks.jpg', 'Hot Drinks', 20),
                   ],
