@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
 class SideBar extends StatelessWidget {
@@ -9,17 +8,16 @@ class SideBar extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.only(top: 50.0),
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              IconButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Setting()));
-                },
-                icon: Icon(Icons.settings),
+          DrawerHeader(
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/pictures/miu-logo.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ],
+              child: null,
+            ),
           ),
           /*
           ListTile(

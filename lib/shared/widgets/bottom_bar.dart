@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/screens/home.dart';
+import 'package:miu_food_court/screens/setting.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      color: const Color(0xFFF6F5F5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -35,6 +37,17 @@ class _BottomBarState extends State<BottomBar> {
               Icons.person,
             ),
             onPressed: () {},
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Setting(),
+                ),
+              );
+            },
+            icon: Icon(Icons.settings),
           ),
         ],
       ),
