@@ -35,7 +35,7 @@ class _SettingState extends State<Setting> {
                   const Text(
                     'Notifications',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: black,
                       fontSize: fontSizeS,
                     ),
                   ),
@@ -47,13 +47,13 @@ class _SettingState extends State<Setting> {
                         print(isSwitched);
                       });
                     },
-                    activeTrackColor: Color(0xFFA83332),
-                    activeColor: Color(0xFFA83332),
+                    activeTrackColor: red,
+                    activeColor: red,
                   ),
                 ],
               ),
               const Divider(
-                color: Colors.black,
+                color: black,
               ),
               TextButton(
                 onPressed: () {
@@ -68,12 +68,12 @@ class _SettingState extends State<Setting> {
                 ),
                 style: TextButton.styleFrom(
                   minimumSize: Size.fromHeight(40),
-                  primary: Colors.black,
+                  primary: black,
                   alignment: Alignment.centerLeft,
                 ),
               ),
               const Divider(
-                color: Colors.black,
+                color: black,
               ),
               TextButton(
                 onPressed: () {},
@@ -85,7 +85,7 @@ class _SettingState extends State<Setting> {
                 ),
                 style: TextButton.styleFrom(
                   minimumSize: Size.fromHeight(40),
-                  primary: Colors.black,
+                  primary: black,
                   alignment: Alignment.centerLeft,
                 ),
               ),

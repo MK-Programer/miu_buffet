@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
                 'Categories',
                 style: TextStyle(
                   fontSize: fontSizeHH,
-                  color: Color(0xFFA83332),
+                  color: red,
                 ),
               ),
               Container(

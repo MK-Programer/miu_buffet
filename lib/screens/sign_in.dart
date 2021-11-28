@@ -46,7 +46,7 @@ class _SignInState extends State<SignIn> {
                         hintText: 'Email',
                         prefixIcon: Icon(
                           Icons.person,
-                          color: Colors.grey,
+                          color: grey,
                         ),
                       ),
                       validator: (val) =>
@@ -61,7 +61,7 @@ class _SignInState extends State<SignIn> {
                         hintText: 'Password',
                         prefixIcon: Icon(
                           Icons.lock,
-                          color: Colors.grey,
+                          color: grey,
                         ),
                       ),
                       validator: (val) =>
@@ -89,8 +89,8 @@ class _SignInState extends State<SignIn> {
                       ),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size.fromHeight(40),
-                        primary: Color(
-                            0xFFA83332), // fromHeight use double.infinity as width and 40 is the height
+                        primary:
+                            red, // fromHeight use double.infinity as width and 40 is the height
                       ),
                     ),
                     Row(
@@ -102,7 +102,7 @@ class _SignInState extends State<SignIn> {
                             'Forget Password?',
                             style: TextStyle(
                               fontSize: fontSizeS,
-                              color: Color(0xFFA83332),
+                              color: red,
                             ),
                           ),
                         ),

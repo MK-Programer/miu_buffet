@@ -12,16 +12,16 @@ class TopBar extends StatelessWidget {
       title: Text(
         '${this._title}',
         style: TextStyle(
-          color: Colors.black,
+          color: black,
           fontSize: fontSizeH,
         ),
       ),
       centerTitle: true,
-      backgroundColor: Colors.transparent, // make back ground transparent
+      backgroundColor: transparent, // make back ground transparent
       elevation: 0.0, // used for shadow strength
       //change the color of the drawer icon
       iconTheme: IconThemeData(
-        color: Color(0xFFA83332),
+        color: red,
       ),
       // will be used to show add to cart only in some screens
       //actions: [

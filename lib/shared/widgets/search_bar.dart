@@ -11,7 +11,7 @@ class SearchBar extends StatelessWidget {
         hintText: 'Search for an item...',
         prefixIcon: Icon(
           Icons.search,
-          color: Colors.grey,
+          color: grey,
         ),
       ),
     );

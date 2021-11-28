@@ -34,7 +34,7 @@ class CategoryCard extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
                 width: MediaQuery.of(context).size.width,
-                color: Colors.black54,
+                color: blackLevel54,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -42,14 +42,14 @@ class CategoryCard extends StatelessWidget {
                       '${this._name}',
                       style: TextStyle(
                         fontSize: fontSizeH,
-                        color: Colors.white,
+                        color: white,
                       ),
                     ),
                     Text(
                       '${this._quantity}',
                       style: TextStyle(
                         fontSize: fontSizeS,
-                        color: Colors.white,
+                        color: white,
                       ),
                     ),
                   ],
