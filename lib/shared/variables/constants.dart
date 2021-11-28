@@ -31,7 +31,7 @@ const fontSizeS = 15.0;
 //const variable for text alignment with icons in drawer
 const alignment = Alignment(-1.2, 0);
 
-//colors init.
+//const colors init.
 const red = Color(0xFFA83332);
 const white = Colors.white;
 const transparentWhite = Color(0xFFF6F5F5);
