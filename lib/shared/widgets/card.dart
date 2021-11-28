@@ -20,7 +20,6 @@ class CategoryCard extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(13),
                 image: DecorationImage(
                   image: AssetImage(
                     'assets/pictures/${this._image}',
