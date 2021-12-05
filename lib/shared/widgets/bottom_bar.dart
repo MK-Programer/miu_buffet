@@ -20,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
         children: [
           IconButton(
             icon: Icon(
-              Icons.home,
+              Icons.home_outlined,
             ),
             onPressed: () {
               Navigator.push(
@@ -32,12 +32,14 @@ class _BottomBarState extends State<BottomBar> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+            ),
             onPressed: () {},
           ),
           IconButton(
             icon: Icon(
-              Icons.person,
+              Icons.person_outlined,
             ),
             onPressed: () {},
           ),
@@ -51,7 +53,7 @@ class _BottomBarState extends State<BottomBar> {
               );
             },
             icon: Icon(
-              Icons.settings,
+              Icons.settings_outlined,
             ),
           ),
         ],
