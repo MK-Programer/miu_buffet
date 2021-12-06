@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
-class TopBar extends StatelessWidget {
-  final _title;
+// ignore: must_be_immutable
+class TopBar extends StatefulWidget {
+  String _title;
 
-  TopBar(this._title);
+  TopBar([this._title = '']);
+
+  @override
+  _TopBarState createState() => _TopBarState();
+}
+
+class _TopBarState extends State<TopBar> {
+  bool isVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      //brightness: Brightness.dark,
       title: Text(
-        '${this._title}',
+        '${this.widget._title}',
         style: TextStyle(
           color: black,
           fontSize: fontSizeH,
@@ -24,33 +33,35 @@ class TopBar extends StatelessWidget {
         color: red,
       ),
       // will be used to show add to cart only in some screens
-      //actions: [
-      //  Visibility(
-      //    visible: _showHide(),
-      //    child: IconButton(
-      //      icon: Icon(Icons.shopping_cart),
-      //      color: Colors.black,
-      //      onPressed: () {},
-      //    ),
-      //  ),
-      //],
+      actions: [
+        Visibility(
+          visible: _showHide(),
+          child: IconButton(
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+            ),
+            color: Colors.black,
+            onPressed: () {},
+          ),
+        ),
+      ],
     );
   }
 
-  //_showHide() {
-  //  if (ModalRoute.of(context)!.settings.name == '/') {
-  //    setState(
-  //      () {
-  //        this.isVisible = false;
-  //      },
-  //    );
-  //  } else {
-  //    setState(
-  //      () {
-  //        this.isVisible = true;
-  //      },
-  //    );
-  //  }
-  //  return this.isVisible;
-  //}
+  _showHide() {
+    if (ModalRoute.of(context)!.settings.name == '/') {
+      setState(
+        () {
+          this.isVisible = true;
+        },
+      );
+    } else {
+      setState(
+        () {
+          this.isVisible = false;
+        },
+      );
+    }
+    return this.isVisible;
+  }
 }
