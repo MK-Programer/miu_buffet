@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:miu_food_court/screens/sign_in.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
@@ -57,28 +56,10 @@ class _SettingState extends State<Setting> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignIn()));
+                  Navigator.pushNamed(context, '/signin');
                 },
                 child: Text(
                   'Login',
-                  style: TextStyle(
-                    fontSize: fontSizeS,
-                  ),
-                ),
-                style: TextButton.styleFrom(
-                  minimumSize: Size.fromHeight(40),
-                  primary: black,
-                  alignment: Alignment.centerLeft,
-                ),
-              ),
-              const Divider(
-                color: black,
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Signup',
                   style: TextStyle(
                     fontSize: fontSizeS,
                   ),
