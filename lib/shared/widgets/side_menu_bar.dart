@@ -13,7 +13,7 @@ class SideBar extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/pictures/miu-logo.png'),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.scaleDown,
                 ),
               ),
               child: null,
@@ -52,7 +52,9 @@ class SideBar extends StatelessWidget {
           ),
           */
           ListTile(
-            leading: Icon(Icons.receipt),
+            leading: Icon(
+              Icons.receipt_outlined,
+            ),
             title: Align(
               child: Text(
                 'My orders',
@@ -64,8 +66,9 @@ class SideBar extends StatelessWidget {
             ),
             onTap: () {},
           ),
+          /*
           ListTile(
-            leading: Icon(Icons.wallet_membership),
+            leading: Icon(Icons.wallet_membership_outlined),
             title: Align(
               child: Text(
                 'Wallet',
@@ -77,8 +80,11 @@ class SideBar extends StatelessWidget {
             ),
             onTap: () {},
           ),
+          */
           ListTile(
-            leading: Icon(Icons.help_outline),
+            leading: Icon(
+              Icons.help_outline_outlined,
+            ),
             title: Align(
               child: Text(
                 'Get Help',
@@ -91,7 +97,9 @@ class SideBar extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.info_outline),
+            leading: Icon(
+              Icons.info_outline_rounded,
+            ),
             title: Align(
               child: Text(
                 'About',
