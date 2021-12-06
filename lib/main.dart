@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/screens/home.dart';
+import 'package:miu_food_court/screens/setting.dart';
+import 'package:miu_food_court/screens/sign_in.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
 main() {
@@ -7,7 +9,7 @@ main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,12 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: transparentWhite,
         fontFamily: fontFamily,
       ),
-      home: Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/setting': (context) => Setting(),
+        '/signin': (context) => SignIn(),
+      },
     );
   }
 }
