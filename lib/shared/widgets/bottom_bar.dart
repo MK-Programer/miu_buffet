@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:miu_food_court/screens/home.dart';
-import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
 class BottomBar extends StatefulWidget {
@@ -11,6 +9,11 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
+  Map _navMap = {
+    0: '/',
+    1: '/setting',
+    2: '/signin',
+  };
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -23,17 +26,12 @@ class _BottomBarState extends State<BottomBar> {
               Icons.home_outlined,
             ),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Home(),
-                ),
-              );
+              routeHandler(0);
             },
           ),
           IconButton(
             icon: Icon(
-              Icons.shopping_cart_outlined,
+              Icons.account_balance_wallet_outlined,
             ),
             onPressed: () {},
           ),
@@ -45,12 +43,7 @@ class _BottomBarState extends State<BottomBar> {
           ),
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Setting(),
-                ),
-              );
+              routeHandler(1);
             },
             icon: Icon(
               Icons.settings_outlined,
@@ -59,5 +52,19 @@ class _BottomBarState extends State<BottomBar> {
         ],
       ),
     );
+  }
+
+  // routes handler
+  void routeHandler(int id) {
+    if (ModalRoute.of(context)!.settings.name == _navMap[id])
+      return;
+    else if (ModalRoute.of(context)!.settings.name != _navMap[0] && id == 0)
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        '/', // got to the home and disable the back feature
+        (route) => false,
+      );
+    else if (ModalRoute.of(context)!.settings.name != _navMap[id])
+      Navigator.pushNamed(context, _navMap[id]);
   }
 }
