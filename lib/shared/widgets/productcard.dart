@@ -57,16 +57,44 @@ class productcard extends StatelessWidget {
                       ),
                       ButtonBar(
                         children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.favorite_border_outlined),
-                            color: black,
+                          Material(
+                            color: Colors.white,
+                            child: Center(
+                              child: Ink(
+                                decoration: ShapeDecoration(
+                                  color: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                ),
+                                child: IconButton(
+                                  icon: const Icon(
+                                      Icons.favorite_border_outlined),
+                                  color: Colors.black,
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ),
                           ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.shopping_cart_outlined),
-                            color: black,
-                          )
+                          Material(
+                            color: Colors.white,
+                            child: Center(
+                              child: Ink(
+                                decoration: ShapeDecoration(
+                                  color: red,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                ),
+                                child: IconButton(
+                                  icon:
+                                      const Icon(Icons.shopping_cart_outlined),
+                                  color: Colors.white,
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ],
