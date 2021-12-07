@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/screens/productlist.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
 class SideBar extends StatelessWidget {
@@ -94,7 +95,10 @@ class SideBar extends StatelessWidget {
               ),
               alignment: alignment,
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => products()));
+            },
           ),
           ListTile(
             leading: Icon(
