@@ -13,41 +13,53 @@ class _BottomBarState extends State<BottomBar> {
     0: '/',
     1: '/setting',
     2: '/signin',
+    3: '/editprofile',
   };
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
       color: transparentWhite,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          IconButton(
-            icon: Icon(
-              Icons.home_outlined,
-            ),
-            onPressed: () {
-              routeHandler(0);
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.account_balance_wallet_outlined,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.person_outlined,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            onPressed: () {
-              routeHandler(1);
-            },
-            icon: Icon(
-              Icons.settings_outlined,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.home_outlined,
+                  size: iconSize,
+                ),
+                onPressed: () {
+                  routeHandler(0);
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.account_balance_wallet_outlined,
+                  size: iconSize,
+                ),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.person_outlined,
+                  size: iconSize,
+                ),
+                onPressed: () {
+                  routeHandler(3);
+                },
+              ),
+              IconButton(
+                onPressed: () {
+                  routeHandler(1);
+                },
+                icon: Icon(
+                  Icons.settings_outlined,
+                  size: iconSize,
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -63,6 +75,12 @@ class _BottomBarState extends State<BottomBar> {
         context,
         '/', // got to the home and disable the back feature
         (route) => false,
+      );
+    else if (ModalRoute.of(context)!.settings.name != _navMap[0] && id >= 0)
+      Navigator.pushReplacementNamed(
+        context,
+        _navMap[
+            id], // if i am in other page than home and go to any other page replace the previous by current
       );
     else if (ModalRoute.of(context)!.settings.name != _navMap[id])
       Navigator.pushNamed(context, _navMap[id]);
