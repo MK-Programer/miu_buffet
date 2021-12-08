@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/screens/edit_profile.dart';
+import 'package:miu_food_court/screens/help.dart';
 import 'package:miu_food_court/screens/home.dart';
+import 'package:miu_food_court/screens/product_list.dart';
 import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/screens/sign_in.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
@@ -9,7 +12,7 @@ main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => Home(),
         '/setting': (context) => Setting(),
         '/signin': (context) => SignIn(),
+        '/editprofile': (context) => EditProfile(),
+        '/productlist': (context) => ProductList(),
+        '/faqs': (context) => FAQs(),
       },
     );
   }
