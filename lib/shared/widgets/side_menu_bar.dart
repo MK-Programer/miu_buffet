@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:miu_food_court/screens/productlist.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
-class SideBar extends StatelessWidget {
+class SideBar extends StatefulWidget {
+  @override
+  _SideBarState createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
+  Map _navMap = {
+    0: '/orders',
+    1: '/faqs',
+    2: '/about',
+  };
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -88,7 +97,7 @@ class SideBar extends StatelessWidget {
             ),
             title: Align(
               child: Text(
-                'Get Help',
+                'FAQs',
                 style: TextStyle(
                   fontSize: fontSizeM,
                 ),
@@ -96,8 +105,7 @@ class SideBar extends StatelessWidget {
               alignment: alignment,
             ),
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => products()));
+              routeHandler(1);
             },
           ),
           ListTile(
@@ -118,5 +126,24 @@ class SideBar extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void routeHandler(int id) {
+    if (ModalRoute.of(context)!.settings.name == _navMap[id])
+      return;
+    else if (ModalRoute.of(context)!.settings.name != _navMap[0] && id == 0)
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        '/orders', // got to the home and disable the back feature
+        (route) => false,
+      );
+    else if (ModalRoute.of(context)!.settings.name != _navMap[0] && id >= 0)
+      Navigator.pushReplacementNamed(
+        context,
+        _navMap[
+            id], // if i am in other page than orders and go to any other page replace the previous by current
+      );
+    else if (ModalRoute.of(context)!.settings.name != _navMap[id])
+      Navigator.pushNamed(context, _navMap[id]);
   }
 }
