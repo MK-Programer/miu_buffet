@@ -20,6 +20,25 @@ const textInputDecoration = InputDecoration(
   ),
 );
 
+//edit profile text style
+const textStyle1 = TextStyle(
+  color: red,
+  letterSpacing: letterSpacing2,
+  fontSize: fontSizeH,
+  fontWeight: FontWeight.bold,
+);
+
+const textStyle2 = TextStyle(
+  color: red,
+  fontSize: fontSizeH,
+  fontWeight: FontWeight.bold,
+);
+
+const textStyle3 = TextStyle(
+  color: black,
+  letterSpacing: letterSpacing2,
+);
+
 //const variable responsible for font family
 const fontFamily = 'Cairo';
 //const variable responsible for font size
@@ -27,6 +46,8 @@ const fontSizeHH = 30.0;
 const fontSizeH = 20.0;
 const fontSizeM = 18.0;
 const fontSizeS = 15.0;
+
+//const font
 
 //const variable for text alignment with icons in drawer
 const alignment = Alignment(-1.2, 0);
@@ -39,3 +60,9 @@ const blackLevel54 = Colors.black54;
 const black = Colors.black;
 const grey = Colors.grey;
 const transparent = Colors.transparent;
+
+//letter spacing init.
+const letterSpacing2 = 2.0;
+
+//icon size
+const iconSize = 25.0;
