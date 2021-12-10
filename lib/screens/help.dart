@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
+import 'package:miu_food_court/shared/widgets/rich_text.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
@@ -40,19 +41,9 @@ class FAQs extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              RichText(
-                textAlign: TextAlign.justify,
-                text: TextSpan(
-                  style: TextStyle(
-                    color: black,
-                  ),
-                  children: [
-                    TextSpan(
-                      text:
-                          'In addition to providing information on our products, we also offer app users many interesting offers. This is an app for our loyal MIU customers.',
-                    ),
-                  ],
-                ),
+              RichTextUpdated(
+                text:
+                    'In addition to providing information on our products, we also offer app users many interesting offers. This is an app for our loyal MIU customers.',
               ),
               const SizedBox(
                 height: 10.0,
@@ -63,19 +54,9 @@ class FAQs extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              RichText(
-                textAlign: TextAlign.justify,
-                text: TextSpan(
-                  style: TextStyle(
-                    color: black,
-                  ),
-                  children: [
-                    TextSpan(
-                      text:
-                          'An internet connection is required to ensure you are viewing the most recent information in the app',
-                    ),
-                  ],
-                ),
+              RichTextUpdated(
+                text:
+                    'An internet connection is required to ensure you are viewing the most recent information in the app',
               ),
               const SizedBox(
                 height: 10.0,
@@ -92,19 +73,9 @@ class FAQs extends StatelessWidget {
               const SizedBox(
                 height: 3.0,
               ),
-              RichText(
-                textAlign: TextAlign.justify,
-                text: TextSpan(
-                  style: TextStyle(
-                    color: black,
-                  ),
-                  children: [
-                    TextSpan(
-                      text:
-                          '• Restart your phone as a first option\n• If this doesn’t work, you could uninstall your app and reinstall it again\n• Lastly, contact customer services for help',
-                    ),
-                  ],
-                ),
+              RichTextUpdated(
+                text:
+                    '• Restart your phone as a first option\n• If this doesn’t work, you could uninstall your app and reinstall it again\n• Lastly, contact customer services for help',
               ),
             ],
           ),
