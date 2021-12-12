@@ -18,7 +18,6 @@ class Cart extends StatelessWidget {
         child: TopBar('Cart'),
       ),
       bottomNavigationBar: BottomBar(),
-      extendBodyBehindAppBar: true,
       body: SafeArea(
         child: ListView(
           children: [
@@ -33,7 +32,7 @@ class Cart extends StatelessWidget {
             CartCard('dark-roast.jpeg', 'Dark Roast', 20, 20.0),
             CartCard('espresso.jpeg', 'Espresso', 10, 10.0),
             Container(
-              padding: EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15.0),
               height: 150,
               width: double.maxFinite,
               decoration: BoxDecoration(
@@ -77,7 +76,9 @@ class Cart extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/checkout');
+                        },
                         child: Text(
                           'Check out',
                           style: TextStyle(
