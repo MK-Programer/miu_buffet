@@ -32,13 +32,14 @@ class FAQs extends StatelessWidget {
               Text(
                 'GENERAL QUESTIONS',
                 style: textStyle3.copyWith(
-                  fontSize: 18.0,
+                  fontSize: fontSizeM,
                 ),
               ),
+              const SizedBox(height: 5.0),
               Text(
                 'What is this app for?',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: fontWeight,
                 ),
               ),
               RichTextUpdated(
@@ -46,12 +47,12 @@ class FAQs extends StatelessWidget {
                     'In addition to providing information on our products, we also offer app users many interesting offers. This is an app for our loyal MIU customers.',
               ),
               const SizedBox(
-                height: 10.0,
+                height: 20.0,
               ),
               const Text(
                 'I have no internet connection, I cannot use the app',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: fontWeight,
                 ),
               ),
               RichTextUpdated(
@@ -59,19 +60,19 @@ class FAQs extends StatelessWidget {
                     'An internet connection is required to ensure you are viewing the most recent information in the app',
               ),
               const SizedBox(
-                height: 10.0,
+                height: 20.0,
               ),
               const Text(
                 'My application won\'t work',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: fontWeight,
                 ),
               ),
               const Text(
-                'If this happens, we would recommend',
+                'If this happens, we would recommend:',
               ),
               const SizedBox(
-                height: 3.0,
+                height: 5.0,
               ),
               RichTextUpdated(
                 text:
