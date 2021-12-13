@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
-import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
-import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
+//import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
+//import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 
 class Checkout extends StatefulWidget {
