@@ -14,6 +14,13 @@ class TopBar extends StatefulWidget {
 class _TopBarState extends State<TopBar> {
   bool isVisible = false;
 
+  List _navList = [
+    '/',
+    '/editprofile',
+    '/productlist',
+    '/faqs',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -39,9 +46,12 @@ class _TopBarState extends State<TopBar> {
           child: IconButton(
             icon: Icon(
               Icons.shopping_cart_outlined,
+              size: iconSize,
             ),
             color: Colors.black,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/cart');
+            },
           ),
         ),
       ],
@@ -49,7 +59,7 @@ class _TopBarState extends State<TopBar> {
   }
 
   _showHide() {
-    if (ModalRoute.of(context)!.settings.name == '/') {
+    if (_navList.contains(ModalRoute.of(context)!.settings.name)) {
       setState(
         () {
           this.isVisible = true;

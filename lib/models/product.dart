@@ -4,9 +4,10 @@ class Product {
   final String pic;
   final int price;
 
-  Product(
-      {required this.pid,
-      required this.name,
-      required this.pic,
-      required this.price});
+  Product({
+    required this.pid,
+    required this.name,
+    required this.pic,
+    required this.price,
+  });
 }

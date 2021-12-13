@@ -41,12 +41,13 @@ class _CartCardState extends State<CartCard> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                      'assets/pictures/${this.widget._productPicture}'),
+                    'assets/pictures/${this.widget._productPicture}',
+                  ),
                   fit: BoxFit.fill,
                 ),
               ),
             ),
-            SizedBox(width: 25.0),
+            const SizedBox(width: 10.0),
             Expanded(
               child: Column(
                 children: [
@@ -76,7 +77,7 @@ class _CartCardState extends State<CartCard> {
                   ),
                   SizedBox(height: 8.0),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
                         onPressed: _decrementCounter,

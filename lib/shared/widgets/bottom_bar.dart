@@ -73,7 +73,7 @@ class _BottomBarState extends State<BottomBar> {
     else if (ModalRoute.of(context)!.settings.name != _navMap[0] && id == 0)
       Navigator.pushNamedAndRemoveUntil(
         context,
-        '/', // got to the home and disable the back feature
+        _navMap[id], // got to the home and disable the back feature
         (route) => false,
       );
     else if (ModalRoute.of(context)!.settings.name != _navMap[0] && id >= 0)

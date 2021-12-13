@@ -45,7 +45,7 @@ class _SignInState extends State<SignIn> {
                       decoration: textInputDecoration.copyWith(
                         hintText: 'Email',
                         prefixIcon: Icon(
-                          Icons.person,
+                          Icons.person_outlined,
                           color: grey,
                         ),
                       ),
@@ -60,7 +60,7 @@ class _SignInState extends State<SignIn> {
                       decoration: textInputDecoration.copyWith(
                         hintText: 'Password',
                         prefixIcon: Icon(
-                          Icons.lock,
+                          Icons.lock_outlined,
                           color: grey,
                         ),
                       ),
@@ -94,7 +94,7 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         TextButton(
                           onPressed: () {},

@@ -8,9 +8,11 @@ class SideBar extends StatefulWidget {
 
 class _SideBarState extends State<SideBar> {
   Map _navMap = {
-    0: '/orders',
-    1: '/faqs',
-    2: '/about',
+    0: '/',
+    1: '/order',
+    2: '/faqs',
+    3: '/about',
+    4: '/fav',
   };
   @override
   Widget build(BuildContext context) {
@@ -29,38 +31,6 @@ class _SideBarState extends State<SideBar> {
               child: null,
             ),
           ),
-          /*
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Align(
-              child: Text(
-                'Home',
-                style: TextStyle(
-                  fontSize: fontSizeM,
-                ),
-              ),
-              alignment: Alignment(-1.2, 0),
-            ),
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Home()));
-            },
-          ),
-          
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Align(
-              child: Text(
-                'My Account',
-                style: TextStyle(
-                  fontSize: fontSizeM,
-                ),
-              ),
-              alignment: Alignment(-1.2, 0),
-            ),
-            onTap: () {},
-          ),
-          */
           ListTile(
             leading: Icon(
               Icons.receipt_outlined,
@@ -74,23 +44,27 @@ class _SideBarState extends State<SideBar> {
               ),
               alignment: alignment,
             ),
-            onTap: () {},
+            onTap: () {
+              routeHandler(1);
+            },
           ),
-          /*
           ListTile(
-            leading: Icon(Icons.wallet_membership_outlined),
+            leading: Icon(
+              Icons.favorite,
+            ),
             title: Align(
               child: Text(
-                'Wallet',
+                'Favourite',
                 style: TextStyle(
                   fontSize: fontSizeM,
                 ),
               ),
               alignment: alignment,
             ),
-            onTap: () {},
+            onTap: () {
+              routeHandler(4);
+            },
           ),
-          */
           ListTile(
             leading: Icon(
               Icons.help_outline_outlined,
@@ -105,7 +79,7 @@ class _SideBarState extends State<SideBar> {
               alignment: alignment,
             ),
             onTap: () {
-              routeHandler(1);
+              routeHandler(2);
             },
           ),
           ListTile(
@@ -134,7 +108,7 @@ class _SideBarState extends State<SideBar> {
     else if (ModalRoute.of(context)!.settings.name != _navMap[0] && id == 0)
       Navigator.pushNamedAndRemoveUntil(
         context,
-        '/orders', // got to the home and disable the back feature
+        _navMap[id], // got to the home and disable the back feature
         (route) => false,
       );
     else if (ModalRoute.of(context)!.settings.name != _navMap[0] && id >= 0)

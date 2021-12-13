@@ -17,7 +17,6 @@ class EditProfile extends StatelessWidget {
         child: TopBar('Edit Profile'),
       ),
       bottomNavigationBar: BottomBar(),
-      extendBodyBehindAppBar: true,
       body: ListView(
         children: [
           Padding(
@@ -28,11 +27,13 @@ class EditProfile extends StatelessWidget {
                 Center(
                   child: CircleAvatar(
                     backgroundImage: AssetImage(
-                      'assets/pictures/download.png',
+                      'assets/pictures/person.png',
                     ),
                     radius: 70.0,
                     child: IconButton(
-                      icon: const Icon(Icons.camera_alt_outlined),
+                      icon: const Icon(
+                        Icons.camera_alt_outlined,
+                      ),
                       onPressed: () {},
                     ),
                   ),
@@ -85,16 +86,6 @@ class EditProfile extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 30.0),
-                const Text(
-                  'GENDER',
-                  style: textStyle3,
-                ),
-                const SizedBox(height: 10.0),
-                const Text(
-                  'Male',
-                  style: textStyle2,
                 ),
               ],
             ),

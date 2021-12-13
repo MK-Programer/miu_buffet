@@ -25,13 +25,13 @@ const textStyle1 = TextStyle(
   color: red,
   letterSpacing: letterSpacing2,
   fontSize: fontSizeH,
-  fontWeight: FontWeight.bold,
+  fontWeight: fontWeight,
 );
 
 const textStyle2 = TextStyle(
   color: red,
   fontSize: fontSizeH,
-  fontWeight: FontWeight.bold,
+  fontWeight: fontWeight,
 );
 
 const textStyle3 = TextStyle(
@@ -64,5 +64,8 @@ const transparent = Colors.transparent;
 //letter spacing init.
 const letterSpacing2 = 2.0;
 
-//icon size
+//icon size for bottom bar
 const iconSize = 25.0;
+
+//font weight
+const fontWeight = FontWeight.bold;
