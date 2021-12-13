@@ -23,8 +23,6 @@ class ProductList extends StatelessWidget {
         child: TopBar('${arguments['category_name']}'),
       ),
       bottomNavigationBar: BottomBar(),
-      extendBodyBehindAppBar:
-          true, // to make the background image or color extended to the appbar
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
