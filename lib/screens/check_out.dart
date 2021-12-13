@@ -17,12 +17,12 @@ class _CheckoutState extends State<Checkout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SideBar(),
+      // drawer: SideBar(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
         child: TopBar('Check out'),
       ),
-      bottomNavigationBar: BottomBar(),
+      //  bottomNavigationBar: BottomBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
