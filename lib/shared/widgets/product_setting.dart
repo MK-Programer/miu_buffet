@@ -16,7 +16,7 @@ class _ProductSettingState extends State<ProductSetting> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-      child: Column(
+      child: ListView(
         children: [
           const Text(
             'Drink Beverages',
