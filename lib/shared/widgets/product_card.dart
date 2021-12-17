@@ -13,48 +13,88 @@ class ProductCard extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
-      margin: EdgeInsets.symmetric(vertical: 4.0),
+      elevation: 5.0,
+      color: white,
       child: Row(
         children: [
           Column(
             children: [
-              Center(
-                child: Container(
-                  width: MediaQuery.of(context).size.width / 2,
-                  height: 150.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        'assets/pictures/${this._image}',
-                      ),
-                      fit: BoxFit.fill,
-                    ),
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                height: 200,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/pictures/${this._image}'),
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
             ],
           ),
+          SizedBox(width: 8.0),
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  child: Text(
-                    '${this._name}',
-                    style: TextStyle(
-                      fontSize: fontSizeM,
-                      fontWeight: fontWeight,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 150.0,
+                      child: Text(
+                        '${this._name}',
+                        style: TextStyle(
+                          fontSize: fontSizeH,
+                          fontWeight: fontWeight,
+                        ),
+                      ),
                     ),
-                  ),
+                    Column(
+                      children: [
+                        Favourite(true),
+                      ],
+                    ),
+                  ],
                 ),
                 Text(
-                  '${this._price} \L.E',
+                  '${this._price} L.E',
                   style: TextStyle(
-                    fontSize: fontSizeS,
-                    fontWeight: FontWeight.w400,
+                    color: black,
+                    fontSize: fontSizeM,
                   ),
                 ),
-                Favourite(this._isFav),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.remove,
+                          color: red,
+                          size: iconSize,
+                        ),
+                      ),
+                      Text(
+                        '1',
+                        style: TextStyle(
+                          fontSize: fontSizeS,
+                          fontWeight: fontWeight,
+                          color: red,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.add,
+                          color: red,
+                          size: iconSize,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -85,28 +125,22 @@ class _FavouriteState extends State<Favourite> {
       );
     }
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Column(
       children: [
-        ElevatedButton(
-          onPressed: _toggleFavorite,
-          child: _iconChecker(),
-          style: ElevatedButton.styleFrom(
-            primary: grey,
-          ),
-        ),
-        ElevatedButton(
+        IconButton(
           onPressed: () {
             setState(() {
               _showSettingsPanel();
             });
           },
-          child: Icon(
+          icon: Icon(
             Icons.shopping_cart_outlined,
+            color: red,
           ),
-          style: ElevatedButton.styleFrom(
-            primary: red,
-          ),
+        ),
+        IconButton(
+          onPressed: _toggleFavorite,
+          icon: _iconChecker(),
         ),
       ],
     );
@@ -115,13 +149,13 @@ class _FavouriteState extends State<Favourite> {
   _iconChecker() {
     if (this.widget.isFavorite == true) {
       return Icon(
-        Icons.favorite,
+        Icons.favorite_outline,
         color: red,
       );
     } else
       return Icon(
         Icons.favorite_outlined,
-        color: white,
+        color: red,
       );
   }
 
