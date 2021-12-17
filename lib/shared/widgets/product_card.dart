@@ -3,13 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/product_setting.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final String _image;
   final String _name;
   final double _price;
   final bool _isFav;
+  int _quantity;
 
-  ProductCard(this._image, this._name, this._price, this._isFav);
+  ProductCard(
+      this._image, this._name, this._price, this._isFav, this._quantity);
+
+  @override
+  _ProductCardState createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  void _incrementCounter() {
+    setState(() {
+      this.widget._quantity++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      if (this.widget._quantity == 1) return;
+      this.widget._quantity--;
+    });
+  }
 
   Widget build(BuildContext context) {
     return Card(
@@ -24,7 +44,7 @@ class ProductCard extends StatelessWidget {
                 height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/pictures/${this._image}'),
+                    image: AssetImage('assets/pictures/${this.widget._image}'),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -42,7 +62,7 @@ class ProductCard extends StatelessWidget {
                     Container(
                       width: 150.0,
                       child: Text(
-                        '${this._name}',
+                        '${this.widget._name}',
                         style: TextStyle(
                           fontSize: fontSizeH,
                           fontWeight: fontWeight,
@@ -51,13 +71,13 @@ class ProductCard extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Favourite(true),
+                        Favourite(widget._isFav),
                       ],
                     ),
                   ],
                 ),
                 Text(
-                  '${this._price} L.E',
+                  '${this.widget._price} L.E',
                   style: TextStyle(
                     color: black,
                     fontSize: fontSizeM,
@@ -69,7 +89,9 @@ class ProductCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _decrementCounter();
+                        },
                         icon: Icon(
                           Icons.remove,
                           color: red,
@@ -77,7 +99,7 @@ class ProductCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '1',
+                        '${this.widget._quantity}',
                         style: TextStyle(
                           fontSize: fontSizeS,
                           fontWeight: fontWeight,
@@ -85,7 +107,9 @@ class ProductCard extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _incrementCounter();
+                        },
                         icon: Icon(
                           Icons.add,
                           color: red,
@@ -147,7 +171,7 @@ class _FavouriteState extends State<Favourite> {
   }
 
   _iconChecker() {
-    if (this.widget.isFavorite == true) {
+    if (this.widget.isFavorite == false) {
       return Icon(
         Icons.favorite_outline,
         color: red,
