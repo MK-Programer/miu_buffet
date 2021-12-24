@@ -35,7 +35,7 @@ class _SettingState extends State<Setting> {
                     'Notifications',
                     style: TextStyle(
                       color: black,
-                      fontSize: fontSizeS,
+                      fontSize: fontSize15,
                     ),
                   ),
                   Switch(
@@ -61,7 +61,7 @@ class _SettingState extends State<Setting> {
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: fontSizeS,
+                    fontSize: fontSize15,
                   ),
                 ),
                 style: TextButton.styleFrom(

@@ -36,7 +36,7 @@ class _CheckoutState extends State<Checkout> {
                       Text(
                         'Delivery Method',
                         style: textStyle3.copyWith(
-                          fontSize: fontSizeM,
+                          fontSize: fontSize18,
                         ),
                       ),
                       TextButton(
@@ -44,7 +44,7 @@ class _CheckoutState extends State<Checkout> {
                         child: Text(
                           'Change',
                           style: TextStyle(
-                            fontSize: fontSizeS,
+                            fontSize: fontSize15,
                             color: red,
                           ),
                         ),
@@ -62,7 +62,7 @@ class _CheckoutState extends State<Checkout> {
                       Text(
                         'Room 307',
                         style: TextStyle(
-                          fontSize: fontSizeS,
+                          fontSize: fontSize15,
                         ),
                       ),
                     ],
@@ -76,7 +76,7 @@ class _CheckoutState extends State<Checkout> {
                   Text(
                     'Delivery Options',
                     style: textStyle3.copyWith(
-                      fontSize: fontSizeM,
+                      fontSize: fontSize18,
                     ),
                   ),
                   const SizedBox(height: 2.0),

@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
               const Text(
                 'Categories',
                 style: TextStyle(
-                  fontSize: fontSizeHH,
+                  fontSize: fontSize30,
                   color: red,
                 ),
               ),

@@ -22,7 +22,7 @@ class _ProductSettingState extends State<ProductSetting> {
             child: const Text(
               'Drink Beverages',
               style: TextStyle(
-                fontSize: fontSizeH,
+                fontSize: fontSize20,
                 color: red,
                 fontWeight: fontWeight,
               ),
@@ -52,7 +52,7 @@ class _ProductSettingState extends State<ProductSetting> {
               Text(
                 'Strength',
                 style: TextStyle(
-                  fontSize: fontSizeM,
+                  fontSize: fontSize18,
                 ),
               ),
             ],
@@ -71,7 +71,7 @@ class _ProductSettingState extends State<ProductSetting> {
               'Update',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: fontSizeM,
+                fontSize: fontSize18,
               ),
             ),
             onPressed: () {

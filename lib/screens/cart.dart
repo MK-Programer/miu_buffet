@@ -49,7 +49,7 @@ class Cart extends StatelessWidget {
                         'Delivery Charge: 5.0 L.E',
                         style: TextStyle(
                           color: white,
-                          fontSize: fontSizeM,
+                          fontSize: fontSize18,
                         ),
                       ),
                     ],
@@ -60,7 +60,7 @@ class Cart extends StatelessWidget {
                         'Sub Total: 10.0 L.E',
                         style: TextStyle(
                           color: white,
-                          fontSize: fontSizeM,
+                          fontSize: fontSize18,
                         ),
                       ),
                     ],
@@ -72,7 +72,7 @@ class Cart extends StatelessWidget {
                         'Total: 15.0 L.E',
                         style: TextStyle(
                           color: white,
-                          fontSize: fontSizeM,
+                          fontSize: fontSize18,
                         ),
                       ),
                       ElevatedButton(
@@ -82,7 +82,7 @@ class Cart extends StatelessWidget {
                         child: Text(
                           'Check out',
                           style: TextStyle(
-                            fontSize: fontSizeM,
+                            fontSize: fontSize18,
                             color: black,
                             fontWeight: fontWeight,
                           ),

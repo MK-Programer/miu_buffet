@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const textInputDecoration = InputDecoration(
   hintStyle: TextStyle(
-    fontSize: fontSizeS,
+    fontSize: fontSize15,
   ),
   fillColor: white,
   filled: true,
@@ -24,13 +24,13 @@ const textInputDecoration = InputDecoration(
 const textStyle1 = TextStyle(
   color: red,
   letterSpacing: letterSpacing2,
-  fontSize: fontSizeH,
+  fontSize: fontSize20,
   fontWeight: fontWeight,
 );
 
 const textStyle2 = TextStyle(
   color: red,
-  fontSize: fontSizeH,
+  fontSize: fontSize20,
   fontWeight: fontWeight,
 );
 
@@ -42,10 +42,10 @@ const textStyle3 = TextStyle(
 //const variable responsible for font family
 const fontFamily = 'Cairo';
 //const variable responsible for font size
-const fontSizeHH = 30.0;
-const fontSizeH = 20.0;
-const fontSizeM = 18.0;
-const fontSizeS = 15.0;
+const fontSize30 = 30.0;
+const fontSize20 = 20.0;
+const fontSize18 = 18.0;
+const fontSize15 = 15.0;
 
 //const variable for text alignment with icons in drawer
 const alignment = Alignment(-1.2, 0);

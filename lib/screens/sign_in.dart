@@ -32,7 +32,7 @@ class _SignInState extends State<SignIn> {
                   Text(
                     'SignIn',
                     style: TextStyle(
-                      fontSize: fontSizeHH,
+                      fontSize: fontSize30,
                     ),
                   ),
                 ],
@@ -84,7 +84,7 @@ class _SignInState extends State<SignIn> {
                       child: Text(
                         'Login',
                         style: TextStyle(
-                          fontSize: fontSizeS,
+                          fontSize: fontSize15,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
@@ -101,7 +101,7 @@ class _SignInState extends State<SignIn> {
                           child: Text(
                             'Forget Password?',
                             style: TextStyle(
-                              fontSize: fontSizeS,
+                              fontSize: fontSize15,
                               color: red,
                             ),
                           ),

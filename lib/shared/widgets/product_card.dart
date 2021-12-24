@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/product_setting.dart';
 
+// ignore: must_be_immutable
 class ProductCard extends StatefulWidget {
   final String _image;
   final String _name;
@@ -60,11 +61,11 @@ class _ProductCardState extends State<ProductCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 150.0,
+                      width: 100.0,
                       child: Text(
                         '${this.widget._name}',
                         style: TextStyle(
-                          fontSize: fontSizeH,
+                          fontSize: fontSize20,
                           fontWeight: fontWeight,
                         ),
                       ),
@@ -80,7 +81,7 @@ class _ProductCardState extends State<ProductCard> {
                   '${this.widget._price} L.E',
                   style: TextStyle(
                     color: black,
-                    fontSize: fontSizeM,
+                    fontSize: fontSize18,
                   ),
                 ),
                 Container(
@@ -101,7 +102,7 @@ class _ProductCardState extends State<ProductCard> {
                       Text(
                         '${this.widget._quantity}',
                         style: TextStyle(
-                          fontSize: fontSizeS,
+                          fontSize: fontSize15,
                           fontWeight: fontWeight,
                           color: red,
                         ),

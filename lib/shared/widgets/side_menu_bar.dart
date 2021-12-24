@@ -39,7 +39,7 @@ class _SideBarState extends State<SideBar> {
               child: Text(
                 'My orders',
                 style: TextStyle(
-                  fontSize: fontSizeM,
+                  fontSize: fontSize18,
                 ),
               ),
               alignment: alignment,
@@ -56,7 +56,7 @@ class _SideBarState extends State<SideBar> {
               child: Text(
                 'Favourite',
                 style: TextStyle(
-                  fontSize: fontSizeM,
+                  fontSize: fontSize18,
                 ),
               ),
               alignment: alignment,
@@ -73,7 +73,7 @@ class _SideBarState extends State<SideBar> {
               child: Text(
                 'FAQs',
                 style: TextStyle(
-                  fontSize: fontSizeM,
+                  fontSize: fontSize18,
                 ),
               ),
               alignment: alignment,
@@ -90,7 +90,7 @@ class _SideBarState extends State<SideBar> {
               child: Text(
                 'About',
                 style: TextStyle(
-                  fontSize: fontSizeM,
+                  fontSize: fontSize18,
                 ),
               ),
               alignment: alignment,

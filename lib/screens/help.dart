@@ -32,7 +32,7 @@ class FAQs extends StatelessWidget {
               Text(
                 'GENERAL QUESTIONS',
                 style: textStyle3.copyWith(
-                  fontSize: fontSizeM,
+                  fontSize: fontSize18,
                 ),
               ),
               const SizedBox(height: 5.0),

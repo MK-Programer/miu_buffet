@@ -29,7 +29,7 @@ class _TopBarState extends State<TopBar> {
         '${this.widget._title}',
         style: TextStyle(
           color: black,
-          fontSize: fontSizeH,
+          fontSize: fontSize20,
         ),
       ),
       centerTitle: true,

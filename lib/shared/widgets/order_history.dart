@@ -39,14 +39,14 @@ class OrderHistory extends StatelessWidget {
                         const Text(
                           'Name: ',
                           style: TextStyle(
-                            fontSize: fontSizeM,
+                            fontSize: fontSize18,
                             fontWeight: fontWeight,
                           ),
                         ),
                         Text(
                           '${this._productName}',
                           style: TextStyle(
-                            fontSize: fontSizeM,
+                            fontSize: fontSize18,
                           ),
                         ),
                       ],
@@ -56,14 +56,14 @@ class OrderHistory extends StatelessWidget {
                         const Text(
                           'Quantity: ',
                           style: TextStyle(
-                            fontSize: fontSizeS,
+                            fontSize: fontSize15,
                             fontWeight: fontWeight,
                           ),
                         ),
                         Text(
                           '${this._quantity}',
                           style: TextStyle(
-                            fontSize: fontSizeS,
+                            fontSize: fontSize15,
                           ),
                         ),
                       ],
@@ -73,14 +73,14 @@ class OrderHistory extends StatelessWidget {
                         const Text(
                           'Price: ',
                           style: TextStyle(
-                            fontSize: fontSizeS,
+                            fontSize: fontSize15,
                             fontWeight: fontWeight,
                           ),
                         ),
                         Text(
                           '${this._price} L.E',
                           style: TextStyle(
-                            fontSize: fontSizeS,
+                            fontSize: fontSize15,
                           ),
                         ),
                       ],
