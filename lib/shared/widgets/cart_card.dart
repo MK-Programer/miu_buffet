@@ -33,6 +33,7 @@ class _CartCardState extends State<CartCard> {
     return Container(
       padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
       child: Card(
+        elevation: 5.0,
         child: Row(
           children: [
             Container(
@@ -83,7 +84,7 @@ class _CartCardState extends State<CartCard> {
                         onPressed: _decrementCounter,
                         icon: Icon(
                           Icons.remove,
-                          color: grey,
+                          color: red,
                           size: iconSize,
                         ),
                       ),
@@ -92,13 +93,14 @@ class _CartCardState extends State<CartCard> {
                         style: TextStyle(
                           fontSize: fontSizeS,
                           fontWeight: fontWeight,
+                          color: red,
                         ),
                       ),
                       IconButton(
                         onPressed: _incrementCounter,
                         icon: Icon(
                           Icons.add,
-                          color: Colors.black,
+                          color: red,
                           size: iconSize,
                         ),
                       ),

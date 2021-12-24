@@ -16,30 +16,16 @@ class _ProductSettingState extends State<ProductSetting> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-      child: Column(
+      child: ListView(
         children: [
-          const Text(
-            'Drink Beverages',
-            style: TextStyle(
-              fontSize: fontSizeH,
-              color: red,
-              fontWeight: fontWeight,
-            ),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          TextFormField(
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly,
-            ],
-            keyboardType: TextInputType.number,
-            validator: (val) =>
-                val!.isEmpty ? 'Enter the count of items' : null,
-            onChanged: (val) {},
-            //initialValue: '01020820065',
-            decoration: textInputDecoration.copyWith(
-              hintText: 'Count of items',
+          Center(
+            child: const Text(
+              'Drink Beverages',
+              style: TextStyle(
+                fontSize: fontSizeH,
+                color: red,
+                fontWeight: fontWeight,
+              ),
             ),
           ),
           const SizedBox(
