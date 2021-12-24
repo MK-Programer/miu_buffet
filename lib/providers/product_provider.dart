@@ -7,7 +7,6 @@ class ProductProviders extends ChangeNotifier {
     return products;
   }
 
-  /*image*/
   void addProducts(String name, String price) {
     Product product = new Product(name, price);
     products.add(product);
