@@ -93,21 +93,6 @@ class _SignInState extends State<SignIn> {
                             red, // fromHeight use double.infinity as width and 40 is the height
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Forget Password?',
-                            style: TextStyle(
-                              fontSize: fontSize15,
-                              color: red,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),

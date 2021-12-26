@@ -70,7 +70,7 @@ class _ProductSettingState extends State<ProductSetting> {
             child: Text(
               'Update',
               style: TextStyle(
-                color: Colors.white,
+                color: white,
                 fontSize: fontSize18,
               ),
             ),

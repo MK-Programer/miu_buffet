@@ -33,6 +33,13 @@ class AdminTopBar extends StatelessWidget {
             color: grey,
           ),
         ),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.notifications_outlined,
+            color: grey,
+          ),
+        ),
       ],
       // will be used to show add to cart only in some screens
     );

@@ -7,8 +7,8 @@ class ProductProviders extends ChangeNotifier {
     return products;
   }
 
-  void addProducts(String name, String price) {
-    Product product = new Product(name, price);
+  void addProducts(String picture, String name, String price) {
+    Product product = new Product(picture, name, price);
     products.add(product);
     notifyListeners();
   }
@@ -18,10 +18,15 @@ class ProductProviders extends ChangeNotifier {
     notifyListeners();
   }
 
-  void editProducts(int index, String name, price) {
+  void editProducts(int index, String picture, String name, price) {
     products[index].name = name;
     products[index].price = price;
+    products[index].picture = picture;
     notifyListeners();
+  }
+
+  String productPicture(int index) {
+    return products[index].picture;
   }
 
   String productName(int index) {

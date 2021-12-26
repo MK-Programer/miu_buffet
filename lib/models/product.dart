@@ -1,6 +1,6 @@
 class Product {
-  /*image*/
+  String picture;
   String name;
   String price;
-  Product(this.name, this.price);
+  Product(this.picture, this.name, this.price);
 }

@@ -23,6 +23,40 @@ class AdminSideBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
+              Icons.home_outlined,
+            ),
+            title: Align(
+              child: Text(
+                'Home',
+                style: TextStyle(
+                  fontSize: fontSize18,
+                ),
+              ),
+              alignment: alignment,
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/adminhome');
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.add_shopping_cart,
+            ),
+            title: Align(
+              child: Text(
+                'Add Product',
+                style: TextStyle(
+                  fontSize: fontSize18,
+                ),
+              ),
+              alignment: alignment,
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/adminaddproduct');
+            },
+          ),
+          ListTile(
+            leading: Icon(
               Icons.person_outline,
             ),
             title: Align(
