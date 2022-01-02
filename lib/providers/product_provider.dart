@@ -18,7 +18,7 @@ class ProductProviders extends ChangeNotifier {
     notifyListeners();
   }
 
-  void editProducts(int index, String picture, String name, price) {
+  void editProducts(int index, String picture, String name, String price) {
     products[index].name = name;
     products[index].price = price;
     products[index].picture = picture;

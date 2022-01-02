@@ -1,18 +1,23 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/models/product.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/product_setting.dart';
 
 // ignore: must_be_immutable
 class ProductCard extends StatefulWidget {
-  final String _image;
-  final String _name;
-  final double _price;
-  final bool _isFav;
-  int _quantity;
+  // final String _image;
+  // final String _name;
+  // final double _price;
+  // final bool _isFav;
+  // int _quantity = 1;
 
-  ProductCard(
-      this._image, this._name, this._price, this._isFav, this._quantity);
+  Product data;
+  int index;
+  int _quantity = 1;
+  final bool _isFav = false;
+
+  ProductCard(this.data, this.index);
 
   @override
   _ProductCardState createState() => _ProductCardState();
@@ -45,7 +50,9 @@ class _ProductCardState extends State<ProductCard> {
                 height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/pictures/${this.widget._image}'),
+                    image: FileImage(
+                      File(widget.data.picture),
+                    ),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -63,7 +70,7 @@ class _ProductCardState extends State<ProductCard> {
                     Container(
                       width: 100.0,
                       child: Text(
-                        '${this.widget._name}',
+                        '${this.widget.data.name}',
                         style: TextStyle(
                           fontSize: fontSize20,
                           fontWeight: fontWeight,
@@ -72,13 +79,14 @@ class _ProductCardState extends State<ProductCard> {
                     ),
                     Column(
                       children: [
-                        Favourite(widget._isFav),
+                        Favourite(widget._isFav, widget.index, widget.data,
+                            widget._quantity),
                       ],
                     ),
                   ],
                 ),
                 Text(
-                  '${this.widget._price} L.E',
+                  '${this.widget.data.price} L.E',
                   style: TextStyle(
                     color: black,
                     fontSize: fontSize18,
@@ -132,7 +140,10 @@ class _ProductCardState extends State<ProductCard> {
 // ignore: must_be_immutable
 class Favourite extends StatefulWidget {
   bool isFavorite;
-  Favourite(this.isFavorite);
+  Product data;
+  int quantity;
+  int index;
+  Favourite(this.isFavorite, this.index, this.data, this.quantity);
 
   @override
   _FavouriteState createState() => _FavouriteState();
@@ -145,7 +156,7 @@ class _FavouriteState extends State<Favourite> {
       showModalBottomSheet(
         context: context,
         builder: (context) {
-          return ProductSetting();
+          return ProductSetting(widget.data, widget.index, widget.quantity);
         },
       );
     }

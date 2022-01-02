@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/providers/cart_provider.dart';
 import 'package:miu_food_court/providers/product_provider.dart';
 import 'package:miu_food_court/screens/admin_add_product.dart';
 import 'package:miu_food_court/screens/admin_home.dart';
+import 'package:miu_food_court/screens/admin_search.dart';
 import 'package:miu_food_court/screens/cart.dart';
 import 'package:miu_food_court/screens/check_out.dart';
 import 'package:miu_food_court/screens/edit_profile.dart';
@@ -24,8 +26,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProductProviders(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ProductProviders(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartProviders(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'MIU Buffet',
@@ -48,6 +57,7 @@ class MyApp extends StatelessWidget {
           '/checkout': (context) => Checkout(),
           '/adminhome': (context) => AdminHome(),
           '/adminaddproduct': (context) => AdminAddProduct(),
+          '/adminsearch': (context) => AdminSearch(),
         },
       ),
     );

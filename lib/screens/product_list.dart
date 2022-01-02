@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/providers/product_provider.dart';
+import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
 import 'package:miu_food_court/shared/widgets/product_card.dart';
-import 'package:miu_food_court/shared/widgets/product_list_btns.dart';
 import 'package:miu_food_court/shared/widgets/search_bar.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ProductList extends StatelessWidget {
@@ -26,35 +28,34 @@ class ProductList extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: ListView(
+          child: Column(
             children: [
               SearchBar(),
               const SizedBox(
                 height: 10.0,
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ProductListBtn(name: 'All', action: 'All'),
-                    ProductListBtn(name: 'Coffee', action: 'Coffee'),
-                    ProductListBtn(name: 'Tea', action: 'Tea'),
-                    ProductListBtn(name: 'Espresso', action: 'Espresso'),
-                    ProductListBtn(name: 'Latte', action: 'Latte'),
-                    ProductListBtn(name: 'Dark Roast', action: 'Dark Roast'),
-                  ],
+              Expanded(
+                child: Consumer<ProductProviders>(
+                  builder: (context, ProductProviders data, child) {
+                    return data.getProduct.length != 0
+                        ? ListView.builder(
+                            itemCount: data.getProduct.length,
+                            itemBuilder: (context, index) {
+                              return ProductCard(data.getProduct[index], index);
+                            },
+                          )
+                        : Center(
+                            child: Text(
+                              'No Available Products',
+                              style: TextStyle(
+                                color: red,
+                                fontSize: fontSize15,
+                              ),
+                            ),
+                          );
+                  },
                 ),
               ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              ProductCard('latte.jpg', 'Latte', 10.0, false, 1),
-              ProductCard('tea.jpg', 'Tea', 5.0, false, 1),
-              ProductCard(
-                  'cappuccino-milk.jpeg', 'Cappuccino Milk', 10.0, false, 1),
-              ProductCard('coffee.jpeg', 'Coffee', 15.0, false, 1),
-              ProductCard('dark-roast.jpeg', 'Dark Roast', 20.0, false, 1),
-              ProductCard('espresso.jpeg', 'Espresso', 10.0, false, 1),
             ],
           ),
         ),

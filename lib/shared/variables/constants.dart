@@ -20,7 +20,7 @@ const textInputDecoration = InputDecoration(
   ),
 );
 
-//edit profile text style
+// edit profile text style
 const textStyle1 = TextStyle(
   color: red,
   letterSpacing: letterSpacing2,

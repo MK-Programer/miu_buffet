@@ -27,7 +27,9 @@ class AdminTopBar extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/adminsearch');
+          },
           icon: Icon(
             Icons.search_outlined,
             color: grey,

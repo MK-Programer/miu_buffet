@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/providers/cart_provider.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
 import 'package:miu_food_court/shared/widgets/cart_card.dart';
 import 'package:miu_food_court/shared/widgets/search_bar.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
+import 'package:provider/provider.dart';
 
 class Cart extends StatelessWidget {
   const Cart();
@@ -19,82 +21,38 @@ class Cart extends StatelessWidget {
       ),
       bottomNavigationBar: BottomBar(),
       body: SafeArea(
-        child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: SearchBar(),
-            ),
-            CartCard('latte.jpg', 'Latte', 10, 10.0),
-            CartCard('tea.jpg', 'Tea', 5, 5.0),
-            CartCard('cappuccino-milk.jpeg', 'Capp.', 15, 10.0),
-            CartCard('coffee.jpeg', 'Coffee', 15, 10.0),
-            CartCard('dark-roast.jpeg', 'Dark Roast', 20, 20.0),
-            CartCard('espresso.jpeg', 'Espresso', 10, 10.0),
-            Container(
-              padding: const EdgeInsets.all(15.0),
-              height: 150,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: red,
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(20.0),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            children: [
+              SearchBar(),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Expanded(
+                child: Consumer<CartProviders>(
+                  builder: (context, CartProviders cart, child) {
+                    return cart.getProduct.length != 0
+                        ? ListView.builder(
+                            itemCount: cart.getProduct.length,
+                            itemBuilder: (context, index) {
+                              return CartCard(cart.getProduct[index], index);
+                            },
+                          )
+                        : Center(
+                            child: Text(
+                              'Empty Cart',
+                              style: TextStyle(
+                                color: red,
+                                fontSize: fontSize15,
+                              ),
+                            ),
+                          );
+                  },
                 ),
               ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Delivery Charge: 5.0 L.E',
-                        style: TextStyle(
-                          color: white,
-                          fontSize: fontSize18,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'Sub Total: 10.0 L.E',
-                        style: TextStyle(
-                          color: white,
-                          fontSize: fontSize18,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Total: 15.0 L.E',
-                        style: TextStyle(
-                          color: white,
-                          fontSize: fontSize18,
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/checkout');
-                        },
-                        child: Text(
-                          'Check out',
-                          style: TextStyle(
-                            fontSize: fontSize18,
-                            color: black,
-                            fontWeight: fontWeight,
-                          ),
-                        ),
-                        style: ElevatedButton.styleFrom(primary: white),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -33,8 +33,9 @@ class _CardListState extends State<CardList> {
 
   _openGallery(BuildContext context) async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image == null) return;
-    final imagePermanent = await saveImagePermanently(image.path);
+    if (image == null) i = widget.data.picture;
+
+    final imagePermanent = await saveImagePermanently(image!.path);
     // final imageTemporary = File(image.path);
     setState(() {
       // this.image = imageTemporary;
@@ -109,6 +110,7 @@ class _CardListState extends State<CardList> {
                                 context,
                                 listen: false)
                             .productPrice(widget.index);
+                        i = widget.data.picture;
                         showBottomDialog(context);
                       },
                     ),
@@ -193,7 +195,7 @@ class _CardListState extends State<CardList> {
       onPressed: () {
         if (_formkey.currentState!.validate()) {
           Provider.of<ProductProviders>(context, listen: false).editProducts(
-              widget.index, i, widget.data.name, widget.data.price);
+              widget.index, this.i, widget.data.name, widget.data.price);
           Navigator.of(context).pop();
         }
       },
@@ -239,10 +241,6 @@ class _CardListState extends State<CardList> {
                       height: 10.0,
                     ),
                     TextFormField(
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                      ],
-                      keyboardType: TextInputType.number,
                       initialValue: '${widget.data.price}',
                       decoration: textInputDecoration.copyWith(
                         hintText: 'Price',

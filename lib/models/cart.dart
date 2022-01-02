@@ -1,7 +1,11 @@
 class Cart {
-  final int processId;
-  final String productName;
-  final int productQuantity;
+  String picture;
+  String name;
+  String sugar;
+  int strength;
+  int quantity;
+  String price;
 
-  Cart(this.processId, this.productName, this.productQuantity);
+  Cart(this.picture, this.name, this.sugar, this.strength, this.quantity,
+      this.price);
 }
