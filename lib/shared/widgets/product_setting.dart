@@ -26,8 +26,8 @@ class _ProductSettingState extends State<ProductSetting> {
       child: ListView(
         children: [
           Center(
-            child: const Text(
-              'Drink Beverages',
+            child: Text(
+              widget.data.name + ' Beverages',
               style: TextStyle(
                 fontSize: fontSize20,
                 color: red,
