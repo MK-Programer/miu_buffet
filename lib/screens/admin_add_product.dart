@@ -9,8 +9,10 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class AdminAddProduct extends StatefulWidget {
   AdminAddProduct({Key? key}) : super(key: key);
+  String currentCategory = 'Hot Drinks';
 
   @override
   _AdminAddProductState createState() => _AdminAddProductState();
@@ -51,11 +53,13 @@ class _AdminAddProductState extends State<AdminAddProduct> {
     Navigator.of(context).pop();
   }
 
+  TextEditingController _name = TextEditingController();
+  TextEditingController _price = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final _formkey = GlobalKey<FormState>();
-    TextEditingController _name = TextEditingController();
-    TextEditingController _price = TextEditingController();
+    final List<String> categories = ['Hot Drinks', 'Soft Drinks', 'Snacks'];
+
     return Scaffold(
       drawer: AdminSideBar(),
       appBar: PreferredSize(
@@ -124,6 +128,23 @@ class _AdminAddProductState extends State<AdminAddProduct> {
                     validator: (val) =>
                         val!.isEmpty ? 'Enter the product price' : null,
                   ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  DropdownButtonFormField<String>(
+                    value: widget.currentCategory,
+                    decoration: textInputDecoration,
+                    items: categories.map((category) {
+                      return DropdownMenuItem(
+                        value: category,
+                        child: Text('$category'),
+                      );
+                    }).toList(),
+                    // if the onChanged callback is null or the list of items is null
+                    // then the dropdown button will be disabled
+                    onChanged: (val) =>
+                        setState(() => widget.currentCategory = val as String),
+                  ),
                 ],
               ),
             ),
@@ -145,7 +166,8 @@ class _AdminAddProductState extends State<AdminAddProduct> {
               onPressed: () {
                 if (_formkey.currentState!.validate()) {
                   Provider.of<ProductProviders>(context, listen: false)
-                      .addProducts(i, _name.text, _price.text);
+                      .addProducts(
+                          i, _name.text, _price.text, widget.currentCategory);
                   Navigator.of(context).pop();
                 }
               },

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:miu_food_court/models/product.dart';
 import 'package:miu_food_court/providers/product_provider.dart';
@@ -180,6 +179,7 @@ class _CardListState extends State<CardList> {
 
   showBottomDialog(BuildContext context) {
     final _formkey = GlobalKey<FormState>();
+    final List<String> categories = ['Hot Drinks', 'Soft Drinks', 'Snacks'];
     Widget editButton = ElevatedButton(
       child: Text(
         'Edit',
@@ -195,7 +195,12 @@ class _CardListState extends State<CardList> {
       onPressed: () {
         if (_formkey.currentState!.validate()) {
           Provider.of<ProductProviders>(context, listen: false).editProducts(
-              widget.index, this.i, widget.data.name, widget.data.price);
+            widget.index,
+            this.i,
+            widget.data.name,
+            widget.data.price,
+            widget.data.category,
+          );
           Navigator.of(context).pop();
         }
       },
@@ -251,6 +256,23 @@ class _CardListState extends State<CardList> {
                         widget.data.price = val;
                       },
                     ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    DropdownButtonFormField<String>(
+                        value: widget.data.category,
+                        decoration: textInputDecoration,
+                        items: categories.map((category) {
+                          return DropdownMenuItem(
+                            value: category,
+                            child: Text('$category'),
+                          );
+                        }).toList(),
+                        // if the onChanged callback is null or the list of items is null
+                        // then the dropdown button will be disabled
+                        onChanged: (val) {
+                          setState(() => widget.data.category = val as String);
+                        }),
                     const SizedBox(
                       height: 10.0,
                     ),
