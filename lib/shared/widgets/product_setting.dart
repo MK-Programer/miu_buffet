@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ProductSetting extends StatefulWidget {
-  int _currentStrength = 100;
   Product data;
   int index;
   int quantity;
@@ -56,29 +55,9 @@ class _ProductSettingState extends State<ProductSetting> {
           const SizedBox(
             height: 20.0,
           ),
-          Row(
-            children: [
-              Text(
-                'Strength',
-                style: TextStyle(
-                  fontSize: fontSize18,
-                ),
-              ),
-            ],
-          ),
-          Slider(
-            value: (widget._currentStrength).toDouble(), // initial value
-            min: 100.0,
-            max: 900.0,
-            divisions: 8,
-            onChanged: (val) =>
-                setState(() => widget._currentStrength = val.round()),
-            activeColor: Colors.brown[widget._currentStrength],
-            inactiveColor: Colors.brown[widget._currentStrength],
-          ),
           ElevatedButton(
             child: Text(
-              'Update',
+              'Add',
               style: TextStyle(
                 color: white,
                 fontSize: fontSize18,
@@ -90,9 +69,9 @@ class _ProductSettingState extends State<ProductSetting> {
                 widget.data.picture,
                 widget.data.name,
                 _sugarCount,
-                widget._currentStrength,
                 widget.quantity,
                 widget.data.price,
+                widget.data.price * widget.quantity,
               );
               Navigator.pop(context);
             },
