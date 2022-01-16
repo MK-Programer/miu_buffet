@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/models/cart.dart';
 import 'package:miu_food_court/providers/cart_provider.dart';
@@ -17,6 +16,17 @@ class CartCard extends StatefulWidget {
 }
 
 class _CartCardState extends State<CartCard> {
+  String _defaultPrice() {
+    final String defaultPrice = this.widget.cart.price;
+    return defaultPrice;
+  }
+
+  String _price() {
+    String defaultPriceReturn = _defaultPrice();
+    double price = double.parse(defaultPriceReturn) * this.widget.cart.quantity;
+    return price.toString();
+  }
+
   void _incrementCounter() {
     setState(() {
       this.widget.cart.quantity++;
@@ -42,8 +52,8 @@ class _CartCardState extends State<CartCard> {
             child: ListView(
               children: [
                 Center(
-                  child: const Text(
-                    'Drink Beverages',
+                  child: Text(
+                    '${this.widget.cart.name} Beverage',
                     style: TextStyle(
                       fontSize: fontSize20,
                       color: red,
@@ -69,26 +79,6 @@ class _CartCardState extends State<CartCard> {
                 const SizedBox(
                   height: 20.0,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      'Strength',
-                      style: TextStyle(
-                        fontSize: fontSize18,
-                      ),
-                    ),
-                  ],
-                ),
-                Slider(
-                  value: (widget.cart.strength).toDouble(), // initial value
-                  min: 100.0,
-                  max: 900.0,
-                  divisions: 8,
-                  onChanged: (val) =>
-                      setState(() => widget.cart.strength = val.round()),
-                  activeColor: Colors.brown[widget.cart.strength],
-                  inactiveColor: Colors.brown[widget.cart.strength],
-                ),
                 ElevatedButton(
                   child: Text(
                     'Update',
@@ -102,9 +92,8 @@ class _CartCardState extends State<CartCard> {
                         .editProducts(
                       widget.index,
                       widget.cart.quantity,
-                      widget.cart.price,
+                      this._price(),
                       widget.cart.sugar,
-                      widget.cart.strength,
                     );
                     Navigator.pop(context);
                   },
@@ -189,7 +178,7 @@ class _CartCardState extends State<CartCard> {
                   ],
                 ),
                 Text(
-                  '${this.widget.cart.price} L.E',
+                  '${this._price()} L.E',
                   style: TextStyle(
                     color: black,
                     fontSize: fontSize18,
