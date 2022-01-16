@@ -19,7 +19,11 @@ class ProductProviders extends ChangeNotifier {
   }
 
   int getCatProductCount(String category) {
-    return products.length;
+    int cnt = 0;
+    for (int i = 0; i < products.length; i++) {
+      if (products[i].category == category) cnt++;
+    }
+    return cnt;
   }
 
   void editProducts(

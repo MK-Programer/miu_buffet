@@ -16,7 +16,8 @@ class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     arguments = ModalRoute.of(context)!.settings.arguments as Map;
-
+    int cnt = Provider.of<ProductProviders>(context, listen: false)
+        .getCatProductCount(arguments['category_name']);
     //if (arguments != null) print(arguments['category_name']);
     return Scaffold(
       drawer: SideBar(),
@@ -37,7 +38,7 @@ class ProductList extends StatelessWidget {
               Expanded(
                 child: Consumer<ProductProviders>(
                   builder: (context, ProductProviders data, child) {
-                    return data.getProduct.length != 0
+                    return cnt != 0
                         ? ListView.builder(
                             itemCount: data.getProduct.length,
                             itemBuilder: (context, index) {
@@ -46,7 +47,7 @@ class ProductList extends StatelessWidget {
                           )
                         : Center(
                             child: Text(
-                              'No Available Products',
+                              'No Available Products in ${arguments['category_name']}',
                               style: TextStyle(
                                 color: red,
                                 fontSize: fontSize15,

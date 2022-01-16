@@ -131,7 +131,7 @@ class _ProductCardState extends State<ProductCard> {
         ),
       );
     } else
-      return Text('asd');
+      return Container();
   }
 }
 

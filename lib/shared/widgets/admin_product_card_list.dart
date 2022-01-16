@@ -205,7 +205,9 @@ class _CardListState extends State<CardList> {
         }
       },
     );
-
+    late String name;
+    late String price;
+    late String category;
     // show bottom model sheet
     showModalBottomSheet(
       context: context,
@@ -239,7 +241,10 @@ class _CardListState extends State<CardList> {
                       validator: (val) =>
                           val!.isEmpty ? 'Enter the product name' : null,
                       onChanged: (val) {
-                        widget.data.name = val;
+                        name = val;
+                      },
+                      onFieldSubmitted: (val) {
+                        widget.data.name = name;
                       },
                     ),
                     const SizedBox(
@@ -253,26 +258,33 @@ class _CardListState extends State<CardList> {
                       validator: (val) =>
                           val!.isEmpty ? 'Enter the product price' : null,
                       onChanged: (val) {
-                        widget.data.price = val;
+                        price = val;
+                      },
+                      onFieldSubmitted: (val) {
+                        widget.data.price = price;
                       },
                     ),
                     const SizedBox(
                       height: 10.0,
                     ),
                     DropdownButtonFormField<String>(
-                        value: widget.data.category,
-                        decoration: textInputDecoration,
-                        items: categories.map((category) {
-                          return DropdownMenuItem(
-                            value: category,
-                            child: Text('$category'),
-                          );
-                        }).toList(),
-                        // if the onChanged callback is null or the list of items is null
-                        // then the dropdown button will be disabled
-                        onChanged: (val) {
-                          setState(() => widget.data.category = val as String);
-                        }),
+                      value: widget.data.category,
+                      decoration: textInputDecoration,
+                      items: categories.map((category) {
+                        return DropdownMenuItem(
+                          value: category,
+                          child: Text('$category'),
+                        );
+                      }).toList(),
+                      // if the onChanged callback is null or the list of items is null
+                      // then the dropdown button will be disabled
+                      onChanged: (val) {
+                        setState(() => category = val as String);
+                      },
+                      onSaved: (val) {
+                        widget.data.category = category;
+                      },
+                    ),
                     const SizedBox(
                       height: 10.0,
                     ),
