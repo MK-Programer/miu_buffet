@@ -7,9 +7,9 @@ class CartProviders extends ChangeNotifier {
     return products;
   }
 
-  void addProducts(String picture, String name, String sugar, int strength,
-      int quantity, String price) {
-    Cart product = new Cart(picture, name, sugar, strength, quantity, price);
+  void addProducts(String picture, String name, String sugar, int quantity,
+      String price, String totalPrice) {
+    Cart product = new Cart(picture, name, sugar, quantity, price, totalPrice);
     products.add(product);
     notifyListeners();
   }
@@ -19,13 +19,23 @@ class CartProviders extends ChangeNotifier {
     notifyListeners();
   }
 
-  void editProducts(
-      int index, int quantity, String price, String sugar, int strength) {
-    products[index].price = price;
+  void editProducts(int index, int quantity, String price, String sugar) {
+    products[index].totalPrice = price;
     products[index].quantity = quantity;
     products[index].sugar = sugar;
-    products[index].strength = strength;
     notifyListeners();
+  }
+
+  double totalCartPrice() {
+    double totalPrice = 0.0;
+    try {
+      for (int i = 0; i < getProduct.length; i++) {
+        totalPrice += double.parse(getProduct[i].totalPrice);
+      }
+    } on FormatException {
+      print('Format error from string to double');
+    }
+    return totalPrice;
   }
 
   String productName(int index) {
@@ -37,14 +47,10 @@ class CartProviders extends ChangeNotifier {
   }
 
   String productPrice(int index) {
-    return products[index].price;
+    return products[index].totalPrice;
   }
 
   String sugarCount(int index) {
     return products[index].sugar;
-  }
-
-  int strength(int index) {
-    return products[index].strength;
   }
 }

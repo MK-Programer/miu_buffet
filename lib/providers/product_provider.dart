@@ -7,8 +7,8 @@ class ProductProviders extends ChangeNotifier {
     return products;
   }
 
-  void addProducts(String picture, String name, String price) {
-    Product product = new Product(picture, name, price);
+  void addProducts(String picture, String name, String price, String category) {
+    Product product = new Product(picture, name, price, category);
     products.add(product);
     notifyListeners();
   }
@@ -18,10 +18,16 @@ class ProductProviders extends ChangeNotifier {
     notifyListeners();
   }
 
-  void editProducts(int index, String picture, String name, String price) {
+  int getCatProductCount(String category) {
+    return products.length;
+  }
+
+  void editProducts(
+      int index, String picture, String name, String price, String category) {
     products[index].name = name;
     products[index].price = price;
     products[index].picture = picture;
+    products[index].category = category;
     notifyListeners();
   }
 
