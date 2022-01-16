@@ -1,10 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/models/product.dart';
-import 'package:miu_food_court/providers/product_provider.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/product_setting.dart';
-import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ProductCard extends StatefulWidget {
