@@ -123,7 +123,13 @@ class _CartState extends State<Cart> {
                             },
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Provider.of<CartProviders>(context, listen: false)
+                                  .getOrder();
+                              Provider.of<CartProviders>(context, listen: false)
+                                  .clearList();
+                              Navigator.pushNamed(context, '/order');
+                            },
                             child: Text(
                               'Check out',
                               style: TextStyle(

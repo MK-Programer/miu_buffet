@@ -5,7 +5,6 @@ import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 import 'package:miu_food_court/providers/cart_provider.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
-import 'package:miu_food_court/shared/widgets/cart_card.dart';
 import 'package:miu_food_court/shared/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +17,7 @@ class MyOrder extends StatelessWidget {
       drawer: SideBar(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
-        child: TopBar('Cart'),
+        child: TopBar('Orders'),
       ),
       bottomNavigationBar: BottomBar(),
       body: SafeArea(
@@ -33,16 +32,16 @@ class MyOrder extends StatelessWidget {
               Expanded(
                 child: Consumer<CartProviders>(
                   builder: (context, CartProviders cart, child) {
-                    return cart.getProduct.length != 0
+                    return cart.getOrders.length != 0
                         ? ListView.builder(
-                            itemCount: cart.getProduct.length,
+                            itemCount: cart.getOrders.length,
                             itemBuilder: (context, index) {
-                              return CartCard(cart.getProduct[index], index);
+                              return OrderHistory(cart.getOrders[index], index);
                             },
                           )
                         : Center(
                             child: Text(
-                              'Empty Cart',
+                              'Empty Orders',
                               style: TextStyle(
                                 color: red,
                                 fontSize: fontSize18,

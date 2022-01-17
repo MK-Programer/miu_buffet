@@ -1,10 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:miu_food_court/models/cart.dart';
+import 'package:miu_food_court/models/order.dart';
 
 class CartProviders extends ChangeNotifier {
   List<Cart> products = <Cart>[];
+  List<Order> order = [];
   List<Cart> get getProduct {
     return products;
+  }
+
+  List<Order> get getOrders {
+    return order;
   }
 
   void addProducts(String picture, String name, String sugar, int quantity,
@@ -12,6 +18,20 @@ class CartProviders extends ChangeNotifier {
     Cart product = new Cart(picture, name, sugar, quantity, price, totalPrice);
     products.add(product);
     notifyListeners();
+  }
+
+  void clearList() {
+    products.clear();
+    notifyListeners();
+  }
+
+  void getOrder() {
+    for (int i = 0; i < products.length; i++) {
+      Order orders = new Order(products[i].picture, products[i].name,
+          products[i].quantity, products[i].totalPrice);
+      order.add(orders);
+      notifyListeners();
+    }
   }
 
   void removeProducts(int index) {

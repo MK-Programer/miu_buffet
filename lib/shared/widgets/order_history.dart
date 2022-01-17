@@ -1,14 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/models/order.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
-class OrderHistory extends StatelessWidget {
-  final String _productPicture;
-  final String _productName;
-  final int _quantity;
-  final double _price;
-  const OrderHistory(
-      this._productPicture, this._productName, this._quantity, this._price);
+// ignore: must_be_immutable
+class OrderHistory extends StatefulWidget {
+  Order order;
+  int index;
+  OrderHistory(this.order, this.index);
 
+  @override
+  _OrderHistoryState createState() => _OrderHistoryState();
+}
+
+class _OrderHistoryState extends State<OrderHistory> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,12 +25,12 @@ class OrderHistory extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: 150.0,
-                  height: 150.0,
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
-                        'assets/pictures/${this._productPicture}',
+                      image: FileImage(
+                        File(widget.order.picture),
                       ),
                       fit: BoxFit.fill,
                     ),
@@ -44,7 +50,7 @@ class OrderHistory extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${this._productName}',
+                          '${this.widget.order.name}',
                           style: TextStyle(
                             fontSize: fontSize18,
                           ),
@@ -61,7 +67,7 @@ class OrderHistory extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${this._quantity}',
+                          '${this.widget.order.quantity}',
                           style: TextStyle(
                             fontSize: fontSize15,
                           ),
@@ -78,7 +84,7 @@ class OrderHistory extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${this._price} L.E',
+                          '${this.widget.order.totalPrice} L.E',
                           style: TextStyle(
                             fontSize: fontSize15,
                           ),
