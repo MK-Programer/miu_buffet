@@ -112,8 +112,8 @@ class _SideBarState extends State<SideBar> {
               ),
               alignment: alignment,
             ),
-            onTap: () {
-              _auth.signout();
+            onTap: () async {
+              await _auth.signout();
             },
           ),
         ],

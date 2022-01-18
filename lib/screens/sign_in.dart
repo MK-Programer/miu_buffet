@@ -74,14 +74,18 @@ class _SignInState extends State<SignIn> {
                       height: 15.0,
                     ),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         // if (_formkey.currentState!.validate()) {
                         //   ScaffoldMessenger.of(context).showSnackBar(
                         //     const SnackBar(
                         //       content: Text('Processing Data'),
                         //     ),
                         //   );
-                        _auth.signinWithGoogle();
+                        try {
+                          await _auth.signinWithGoogle();
+                        } catch (e) {
+                          return null;
+                        }
                         // }
                       },
                       child: Text(
