@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "240207278155",
+    "project_id": "miu-buffet",
+    "storage_bucket": "miu-buffet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240207278155:android:01543b5212256f9ec55dce",
+        "android_client_info": {
+          "package_name": "com.example.miu_food_court"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240207278155-jag36uo0pnnqq2o15n1m7ac9np6l6geq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwdNwQjuxmxvlTC-_VFwhDEx8mjhW79KQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240207278155-jag36uo0pnnqq2o15n1m7ac9np6l6geq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

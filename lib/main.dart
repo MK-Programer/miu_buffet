@@ -16,8 +16,11 @@ import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/screens/sign_in.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-main() {
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -43,7 +46,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: transparentWhite,
           fontFamily: fontFamily,
         ),
-        initialRoute: '/adminhome',
+        initialRoute: '/signin',
         routes: {
           '/': (context) => Home(),
           '/setting': (context) => Setting(),

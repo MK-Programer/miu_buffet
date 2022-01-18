@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
 class SideBar extends StatefulWidget {
@@ -7,6 +8,7 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
+  final AuthService _auth = AuthService();
   Map _navMap = {
     0: '/',
     1: '/order',
@@ -96,6 +98,23 @@ class _SideBarState extends State<SideBar> {
               alignment: alignment,
             ),
             onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.logout_outlined,
+            ),
+            title: Align(
+              child: Text(
+                'Logout',
+                style: TextStyle(
+                  fontSize: fontSize18,
+                ),
+              ),
+              alignment: alignment,
+            ),
+            onTap: () {
+              _auth.signout();
+            },
           ),
         ],
       ),

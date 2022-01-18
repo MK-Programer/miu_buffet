@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
 import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
@@ -10,6 +11,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final AuthService _auth = AuthService();
   final _formkey = GlobalKey<FormState>();
 
   @override
@@ -73,13 +75,14 @@ class _SignInState extends State<SignIn> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        if (_formkey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Processing Data'),
-                            ),
-                          );
-                        }
+                        // if (_formkey.currentState!.validate()) {
+                        //   ScaffoldMessenger.of(context).showSnackBar(
+                        //     const SnackBar(
+                        //       content: Text('Processing Data'),
+                        //     ),
+                        //   );
+                        _auth.signinWithGoogle();
+                        // }
                       },
                       child: Text(
                         'Login',
