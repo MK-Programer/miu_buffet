@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
-import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
-import 'package:miu_food_court/shared/widgets/side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -21,8 +20,6 @@ class _SignInState extends State<SignIn> {
         preferredSize: Size.fromHeight(50.0),
         child: TopBar('Signin'),
       ),
-      drawer: SideBar(),
-      bottomNavigationBar: BottomBar(),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(20.0),
@@ -74,20 +71,7 @@ class _SignInState extends State<SignIn> {
                       height: 15.0,
                     ),
                     ElevatedButton(
-                      onPressed: () async {
-                        // if (_formkey.currentState!.validate()) {
-                        //   ScaffoldMessenger.of(context).showSnackBar(
-                        //     const SnackBar(
-                        //       content: Text('Processing Data'),
-                        //     ),
-                        //   );
-                        try {
-                          await _auth.signinWithGoogle();
-                        } catch (e) {
-                          return null;
-                        }
-                        // }
-                      },
+                      onPressed: () {},
                       child: Text(
                         'Login',
                         style: TextStyle(
@@ -99,6 +83,16 @@ class _SignInState extends State<SignIn> {
                         primary:
                             red, // fromHeight use double.infinity as width and 40 is the height
                       ),
+                    ),
+                    SignInButton(
+                      Buttons.Google,
+                      onPressed: () async {
+                        try {
+                          await _auth.signinWithGoogle();
+                        } catch (e) {
+                          return null;
+                        }
+                      },
                     ),
                   ],
                 ),

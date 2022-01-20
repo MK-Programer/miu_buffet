@@ -51,25 +51,6 @@ class _SettingState extends State<Setting> {
                   ),
                 ],
               ),
-              const Divider(
-                color: black,
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/signin');
-                },
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: fontSize15,
-                  ),
-                ),
-                style: TextButton.styleFrom(
-                  minimumSize: Size.fromHeight(40),
-                  primary: black,
-                  alignment: Alignment.centerLeft,
-                ),
-              ),
             ],
           ),
         ),
