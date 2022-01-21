@@ -1,28 +1,27 @@
-// ignore_for_file: camel_case_types
-
 import 'package:flutter/material.dart';
-import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/admin_side_menu_bar.dart';
 import 'package:miu_food_court/shared/widgets/admin_top_bar.dart';
 
-class viewoffices extends StatefulWidget {
+// ignore: camel_case_types
+class ViewOffices extends StatefulWidget {
   @override
-  _viewoffices createState() => _viewoffices();
+  _viewOffices createState() => _viewOffices();
 }
 
-class _viewoffices extends State<viewoffices> {
+// ignore: camel_case_types
+class _viewOffices extends State<ViewOffices> {
   // Dummy Product Data Here
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AdminSideBar(),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0),
-        child: AdminTopBar('View Ofiicers'),
-      ),
+        drawer: AdminSideBar(),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(50.0),
+          child: AdminTopBar('View Oficers'),
+        ),
         body: Container(
-         child: ListView.builder(
+          child: ListView.builder(
             itemCount: myProducts.length,
             itemBuilder: (BuildContext ctx, index) {
               // Display the list item
@@ -32,9 +31,9 @@ class _viewoffices extends State<viewoffices> {
                 // only allows the user swipe from right to left
                 direction: DismissDirection.endToStart,
 
-                // Remove this product from the list 
+                // Remove this product from the list
                 // In production enviroment, you may want to send some request to delete it on server side
-                onDismissed: (_){
+                onDismissed: (_) {
                   setState(() {
                     myProducts.removeAt(index);
                   });
@@ -70,15 +69,12 @@ class _viewoffices extends State<viewoffices> {
                 ),
               );
             },
-),
+          ),
         ));
   }
 }
 
 // Dummy Product Data Here
-  List myProducts = List.generate(7, (index) {
-    return {"id": index, "title": "Office"};
-  });
-
-
-  
+List myProducts = List.generate(7, (index) {
+  return {"id": index, "title": "Office"};
+});

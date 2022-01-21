@@ -85,7 +85,7 @@ class AuthService {
       UserCredential? userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User? user = userCredential.user;
-      print(user!.isAnonymous);
+      await setPref(user!.uid);
       return true;
     } on FirebaseAuthException catch (e) {
       print('err ${e.toString()}');

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/providers/product_provider.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
+import 'package:provider/provider.dart';
 
 class AdminSideBar extends StatefulWidget {
   @override
   _AdminSideBarState createState() => _AdminSideBarState();
 }
 
-class _AdminSideBarState extends State<AdminSideBar> { 
-   Map _navMap = {
+class _AdminSideBarState extends State<AdminSideBar> {
+  Map _navMap = {
     0: '/adminhome',
     1: '/adminaddproduct',
     2: '/editprofile',
@@ -45,8 +47,7 @@ class _AdminSideBarState extends State<AdminSideBar> {
               alignment: alignment,
             ),
             onTap: () {
-                     routeHandler(0);
-
+              routeHandler(0);
             },
           ),
           ListTile(
@@ -100,13 +101,28 @@ class _AdminSideBarState extends State<AdminSideBar> {
               routeHandler(3);
             },
           ),
-          
+          ListTile(
+            leading: Icon(
+              Icons.logout_outlined,
+            ),
+            title: Align(
+              child: Text(
+                'Logout',
+                style: TextStyle(
+                  fontSize: fontSize18,
+                ),
+              ),
+              alignment: alignment,
+            ),
+            onTap: () async {
+              await Provider.of<ProductProviders>(context, listen: false)
+                  .saveProduct();
+            },
+          ),
         ],
       ),
     );
   }
-  
-
 
   void routeHandler(int id) {
     if (ModalRoute.of(context)!.settings.name == _navMap[id])
@@ -127,6 +143,3 @@ class _AdminSideBarState extends State<AdminSideBar> {
       Navigator.pushNamed(context, _navMap[id]);
   }
 }
-
-
-

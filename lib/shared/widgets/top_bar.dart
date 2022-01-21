@@ -15,7 +15,7 @@ class _TopBarState extends State<TopBar> {
   bool isVisible = false;
 
   List _navList = [
-    '/',
+    '/home',
     '/editprofile',
     '/productlist',
     '/faqs',

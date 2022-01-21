@@ -10,9 +10,8 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   Map _navMap = {
-    0: '/',
+    0: '/home',
     1: '/setting',
-    2: '/signin',
     3: '/editprofile',
   };
   @override

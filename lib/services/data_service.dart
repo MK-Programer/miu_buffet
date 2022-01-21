@@ -5,9 +5,6 @@ class DatabaseService {
   late DocumentSnapshot _documentSnapshot;
   DatabaseService({required this.uid});
 
-  final CollectionReference userCollection =
-      FirebaseFirestore.instance.collection('users');
-
   void savePhone(String number) async {
     await FirebaseFirestore.instance
         .collection('users')

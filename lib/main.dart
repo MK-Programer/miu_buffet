@@ -19,7 +19,7 @@ import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           '/adminhome': (context) => AdminHome(),
           '/adminaddproduct': (context) => AdminAddProduct(),
           '/adminsearch': (context) => AdminSearch(),
-          '/viewofficers':(context)=>viewoffices(),
+          '/viewofficers': (context) => ViewOffices(),
         },
       ),
     );
