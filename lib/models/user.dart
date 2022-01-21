@@ -5,10 +5,11 @@ class UserData {
   String? email;
   String? phoneNumber;
 
-  UserData(
-      {required this.uid,
-      required this.picture,
-      required this.name,
-      required this.email,
-      required this.phoneNumber});
+  UserData({
+    required this.uid,
+    required this.picture,
+    required this.name,
+    required this.email,
+    required this.phoneNumber,
+  });
 }
