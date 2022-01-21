@@ -10,11 +10,12 @@ class SideBar extends StatefulWidget {
 class _SideBarState extends State<SideBar> {
   final AuthService _auth = AuthService();
   Map _navMap = {
-    0: '/',
+    0: '/home',
     1: '/order',
     2: '/faqs',
     3: '/about',
     4: '/fav',
+    5: '/',
   };
   @override
   Widget build(BuildContext context) {
@@ -113,6 +114,7 @@ class _SideBarState extends State<SideBar> {
               alignment: alignment,
             ),
             onTap: () async {
+              routeHandler(5);
               await _auth.signout();
             },
           ),

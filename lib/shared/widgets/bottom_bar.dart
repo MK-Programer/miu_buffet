@@ -46,7 +46,7 @@ class _BottomBarState extends State<BottomBar> {
                   Icons.person_outlined,
                   size: iconSize,
                 ),
-                onPressed: () {
+                onPressed: () async {
                   routeHandler(3);
                 },
               ),

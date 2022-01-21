@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     double cardWidth = MediaQuery.of(context).size.width;
     double cardHeight = MediaQuery.of(context).size.height / 1.5;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       drawer: SideBar(),
