@@ -15,6 +15,7 @@ import 'package:miu_food_court/screens/product_list.dart';
 import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/screens/sign_in.dart';
 import 'package:miu_food_court/screens/view_offices.dart';
+import 'package:miu_food_court/screens/add_office.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
           '/adminaddproduct': (context) => AdminAddProduct(),
           '/adminsearch': (context) => AdminSearch(),
           '/viewofficers':(context)=>viewoffices(),
+          '/addoffice':(context)=>AddOffice(),
         },
       ),
     );
