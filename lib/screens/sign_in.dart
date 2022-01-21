@@ -63,6 +63,7 @@ class _SignInState extends State<SignIn> {
                             height: 20.0,
                           ),
                           TextFormField(
+                            obscureText: true,
                             controller: passwordController,
                             decoration: textInputDecoration.copyWith(
                               hintText: 'Password',
