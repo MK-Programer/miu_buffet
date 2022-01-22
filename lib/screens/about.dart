@@ -40,6 +40,29 @@ class Aboutus extends StatelessWidget {
               const SizedBox(height: 5.0),
               Center(
                 child: const Text(
+                  'Supervised By',
+                  style: textStyle2,
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(
+                    'assets/pictures/essameliwa.jpg',
+                  ),
+                  radius: 50.0,
+                ),
+              ),
+              Center(
+                child: const ListTile(
+                  title: Text('Essam Eliwa', textAlign: TextAlign.center),
+                  subtitle: Text('essam.eliwa@miuegypt.edu.eg',
+                      textAlign: TextAlign.center),
+                ),
+              ),
+              const SizedBox(height: 5.0),
+              Center(
+                child: const Text(
                   'Core Team',
                   style: textStyle2,
                 ),
