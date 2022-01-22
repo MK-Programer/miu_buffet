@@ -98,7 +98,9 @@ class _SideBarState extends State<SideBar> {
               ),
               alignment: alignment,
             ),
-            onTap: () {},
+            onTap: () {
+              routeHandler(3);
+            },
           ),
           ListTile(
             leading: Icon(

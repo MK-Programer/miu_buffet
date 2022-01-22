@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/providers/cart_provider.dart';
 import 'package:miu_food_court/providers/product_provider.dart';
+import 'package:miu_food_court/screens/about.dart';
 import 'package:miu_food_court/screens/admin_add_product.dart';
 import 'package:miu_food_court/screens/admin_home.dart';
 import 'package:miu_food_court/screens/admin_search.dart';
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
           '/adminsearch': (context) => AdminSearch(),
           '/viewofficers': (context) => ViewOffices(),
           '/addoffice': (context) => AddOffice(),
+          '/about':(context) => Aboutus(),
         },
       ),
     );
