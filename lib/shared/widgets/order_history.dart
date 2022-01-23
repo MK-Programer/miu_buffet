@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/models/order.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
@@ -29,8 +27,8 @@ class _OrderHistoryState extends State<OrderHistory> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: FileImage(
-                        File(widget.order.picture),
+                      image: NetworkImage(
+                        widget.order.picture,
                       ),
                       fit: BoxFit.fill,
                     ),

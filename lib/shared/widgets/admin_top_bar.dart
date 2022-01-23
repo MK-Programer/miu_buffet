@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 
-// ignore: must_be_immutable
 class AdminTopBar extends StatelessWidget {
   String _title;
 
@@ -50,7 +49,6 @@ class AdminTopBar extends StatelessWidget {
   }
 }
 
-
 class AdminTopBarOffice extends StatelessWidget {
   String _title;
 
@@ -75,26 +73,24 @@ class AdminTopBarOffice extends StatelessWidget {
         color: red,
       ),
       actions: [
-           IconButton(
+        IconButton(
           onPressed: () {},
-           icon: Icon(
+          icon: Icon(
             Icons.search_outlined,
             color: grey,
           ),
         ),
         IconButton(
           onPressed: () {
-             Navigator.pushNamed(context, '/addoffice');
+            Navigator.pushNamed(context, '/addoffice');
           },
           icon: Icon(
             Icons.add_box,
-           color: Color(0xFFA83332),
+            color: Color(0xFFA83332),
           ),
         ),
-       
       ],
       // will be used to show add to cart only in some screens
     );
   }
 }
-

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:dcdg/dcdg.dart';
 import 'package:miu_food_court/providers/cart_provider.dart';
+import 'package:miu_food_court/providers/orders_provider.dart';
 import 'package:miu_food_court/providers/product_provider.dart';
 import 'package:miu_food_court/screens/about.dart';
 import 'package:miu_food_court/screens/admin_add_product.dart';
 import 'package:miu_food_court/screens/admin_home.dart';
 import 'package:miu_food_court/screens/admin_search.dart';
+import 'package:miu_food_court/screens/admin_view_order.dart';
 import 'package:miu_food_court/screens/cart.dart';
 import 'package:miu_food_court/screens/check_out.dart';
 import 'package:miu_food_court/screens/edit_profile.dart';
@@ -17,7 +18,6 @@ import 'package:miu_food_court/screens/product_list.dart';
 import 'package:miu_food_court/screens/setting.dart';
 import 'package:miu_food_court/screens/sign_in.dart';
 import 'package:miu_food_court/screens/view_offices.dart';
-import 'package:miu_food_court/screens/add_office.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -40,6 +40,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => CartProviders(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => OrderProviders(),
         ),
       ],
       child: MaterialApp(
@@ -66,8 +69,9 @@ class MyApp extends StatelessWidget {
           '/adminaddproduct': (context) => AdminAddProduct(),
           '/adminsearch': (context) => AdminSearch(),
           '/viewofficers': (context) => ViewOffices(),
-          '/addoffice': (context) => AddOffice(),
-          '/about':(context) => Aboutus(),
+          // '/addoffice': (context) => AddOffice(),
+          '/about': (context) => Aboutus(),
+          '/vieworders': (context) => ViewOrders(),
         },
       ),
     );

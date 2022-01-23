@@ -5,7 +5,7 @@ class DatabaseService {
   late DocumentSnapshot _documentSnapshot;
   DatabaseService({required this.uid});
 
-  void savePhone(String number) async {
+  Future<void> savePhone(String number) async {
     await FirebaseFirestore.instance
         .collection('users')
         .doc(this.uid)

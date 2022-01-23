@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/providers/cart_provider.dart';
 import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
+import 'package:provider/provider.dart';
 
 class SideBar extends StatefulWidget {
   @override
@@ -47,7 +49,11 @@ class _SideBarState extends State<SideBar> {
               ),
               alignment: alignment,
             ),
-            onTap: () {
+            onTap: () async {
+              String result = await _auth.getPrefEmail();
+              await Provider.of<CartProviders>(context, listen: false)
+                  .loadHistory(result);
+
               routeHandler(1);
             },
           ),
@@ -116,8 +122,8 @@ class _SideBarState extends State<SideBar> {
               alignment: alignment,
             ),
             onTap: () async {
-              routeHandler(5);
               await _auth.signout();
+              routeHandler(5);
             },
           ),
         ],
