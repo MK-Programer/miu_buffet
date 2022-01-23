@@ -12,18 +12,17 @@ class AddOffice extends StatefulWidget {
 
 class _AddOfficeState extends State<AddOffice> {
   @override
-   final controllerUsername = TextEditingController();
+  final controllerUsername = TextEditingController();
   final controllerPassword = TextEditingController();
   final controllerEmail = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AdminSideBar(),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0),
-        child: AdminTopBarOffice('View Ofiicers'),
+        drawer: AdminSideBar(),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(50.0),
+          child: AdminTopBarOffice('View Ofiicers'),
         ),
         body: Center(
           child: SingleChildScrollView(
@@ -31,13 +30,12 @@ class _AddOfficeState extends State<AddOffice> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-             
                 SizedBox(
                   height: 5,
                 ),
                 Center(
-                  child: const Text('Add Office',
-                      style: TextStyle(fontSize: 16)),
+                  child:
+                      const Text('Add Office', style: TextStyle(fontSize: 16)),
                 ),
                 SizedBox(
                   height: 25,
@@ -72,8 +70,10 @@ class _AddOfficeState extends State<AddOffice> {
                 Container(
                   height: 100,
                   child: TextButton(
-                    child: const Text('Add ', style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xFFA83332))),
-                  
+                    child: const Text('Add ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFA83332))),
                     onPressed: () {},
                   ),
                 )
@@ -82,12 +82,4 @@ class _AddOfficeState extends State<AddOffice> {
           ),
         ));
   }
-
-  
-  
-
-  
 }
-       
-
-
