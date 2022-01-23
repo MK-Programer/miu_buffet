@@ -74,7 +74,7 @@ class _AddOfficeState extends State<AddOffice> {
                   child: TextButton(
                     child: const Text('Add ', style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xFFA83332))),
                   
-                    onPressed: () => doUserRegistration(),
+                    onPressed: () {},
                   ),
                 )
               ],
@@ -83,49 +83,10 @@ class _AddOfficeState extends State<AddOffice> {
         ));
   }
 
-  void showSuccess() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Success!"),
-          content: const Text("User was successfully created!"),
-          actions: <Widget>[
-            new FlatButton(
-              child: const Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  
+  
 
-  void showError(String errorMessage) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Error!"),
-          content: Text(errorMessage),
-          actions: <Widget>[
-            new FlatButton(
-              child: const Text("OK"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void doUserRegistration() async {
-		//Sigup code here
-  }
+  
 }
        
 

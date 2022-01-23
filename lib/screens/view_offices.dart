@@ -18,7 +18,7 @@ class _viewOffices extends State<ViewOffices> {
         drawer: AdminSideBar(),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(50.0),
-          child: AdminTopBar('View Oficers'),
+          child: AdminTopBarOffice('View Oficers'),
         ),
         body: Container(
           child: ListView.builder(

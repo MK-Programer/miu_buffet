@@ -90,7 +90,7 @@ class _AdminSideBarState extends State<AdminSideBar> {
             ),
             title: Align(
               child: Text(
-                'Officers',
+                'Offices',
                 style: TextStyle(
                   fontSize: fontSize18,
                 ),
