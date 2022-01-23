@@ -21,6 +21,7 @@ class _EditProfileState extends State<EditProfile> {
   String phone = '';
   @override
   Widget build(BuildContext context) {
+    final _key = GlobalKey<FormState>();
     return StreamBuilder<UserData?>(
       stream: AuthService().user,
       builder: (context, snapshot) {
@@ -77,31 +78,54 @@ class _EditProfileState extends State<EditProfile> {
                         style: textStyle3,
                       ),
                       const SizedBox(height: 10.0),
-                      TextFormField(
-                        initialValue: '${userData.phoneNumber}',
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
-                        onChanged: (val) {
-                          phone = val;
-                        },
-                        keyboardType: TextInputType.number,
-                        validator: (val) => val!.isEmpty
-                            ? 'Enter the phone number please...'
-                            : null,
-                        decoration: textInputDecoration.copyWith(
-                          hintText: 'Enter your number...',
-                          suffixIcon: IconButton(
-                            onPressed: () async {
-                              String result = await _auth.getPref();
-                              DatabaseService db = DatabaseService(uid: result);
-                              db.savePhone(phone);
-                            },
-                            icon: Icon(
-                              Icons.edit,
-                              color: red,
-                            ),
+                      Form(
+                        key: _key,
+                        child: TextFormField(
+                          initialValue: '${userData.phoneNumber}',
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
+                          onChanged: (val) {
+                            phone = val;
+                          },
+                          keyboardType: TextInputType.number,
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return 'Enter the phone number please...';
+                            } else if (val.length < 11) {
+                              return 'Phone number must be 11 numbers';
+                            } else
+                              return null;
+                          },
+                          decoration: textInputDecoration.copyWith(
+                            hintText: 'Enter your number...',
                           ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      ElevatedButton(
+                        onPressed: () async {
+                          if (_key.currentState!.validate()) {
+                            String result = await _auth.getPref();
+                            DatabaseService db = DatabaseService(uid: result);
+                            await db.savePhone(phone);
+                            this.phone = await db.getPhone();
+                            print('done');
+                            setState(() {
+                              // userData.phoneNumber = this.phone;
+                              // AuthService().user.
+                              // print(userData.phoneNumber);
+                            });
+                          }
+                        },
+                        child: Text(
+                          'Edit',
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: red,
+                          minimumSize: Size.fromHeight(40),
                         ),
                       ),
                     ],
