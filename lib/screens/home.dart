@@ -19,7 +19,9 @@ class Home extends StatelessWidget {
       drawer: SideBar(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
-        child: TopBar('Delivering to Room : 307'),
+        child: TopBar(
+          'Welcome To MIU Buffet',
+        ),
       ),
       bottomNavigationBar: BottomBar(),
       body: SafeArea(
