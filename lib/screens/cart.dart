@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/providers/cart_provider.dart';
+import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/bottom_bar.dart';
 import 'package:miu_food_court/shared/widgets/cart_card.dart';
@@ -114,7 +115,7 @@ class _CartState extends State<Cart> {
                           Consumer<CartProviders>(
                             builder: (context, CartProviders cart, child) {
                               return Text(
-                                'Total: ${(Provider.of<CartProviders>(context, listen: false).totalCartPrice() + this.widget.deliveryCharge).toString()}',
+                                'Total: ${(Provider.of<CartProviders>(context, listen: false).totalCartPrice() + this.widget.deliveryCharge).toString()} L.E',
                                 style: TextStyle(
                                   color: white,
                                   fontSize: fontSize18,
@@ -123,11 +124,21 @@ class _CartState extends State<Cart> {
                             },
                           ),
                           ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
+                              final AuthService _auth = AuthService();
+                              String uid = await _auth.getPref();
+                              String email = await _auth.getPrefEmail();
+
                               Provider.of<CartProviders>(context, listen: false)
                                   .getOrder();
                               Provider.of<CartProviders>(context, listen: false)
                                   .clearList();
+                              await Provider.of<CartProviders>(context,
+                                      listen: false)
+                                  .checkOut(uid, email);
+                              await Provider.of<CartProviders>(context,
+                                      listen: false)
+                                  .loadHistory(uid);
                               Navigator.pushNamed(context, '/order');
                             },
                             child: Text(
