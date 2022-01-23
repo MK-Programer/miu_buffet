@@ -8,6 +8,7 @@ import 'package:miu_food_court/shared/widgets/admin_top_bar.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 // ignore: must_be_immutable
 class AdminAddProduct extends StatefulWidget {
@@ -21,11 +22,19 @@ class AdminAddProduct extends StatefulWidget {
 class _AdminAddProductState extends State<AdminAddProduct> {
   File? image;
   late String i;
-  Future<File> saveImagePermanently(String imagePath) async {
+  late String url;
+  Future saveImagePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
     final name = basename(imagePath);
+    print(name);
     final image = File('${directory.path}/$name');
     i = image.path;
+    Reference storageReference =
+        FirebaseStorage.instance.ref().child("Products Images/$name");
+    final UploadTask uploadTask = storageReference.putFile(File(imagePath));
+    final TaskSnapshot downloadUrl = (await uploadTask);
+    url = await downloadUrl.ref.getDownloadURL();
+
     return File(imagePath).copy(image.path);
   }
 
@@ -166,8 +175,8 @@ class _AdminAddProductState extends State<AdminAddProduct> {
               onPressed: () {
                 if (_formkey.currentState!.validate()) {
                   Provider.of<ProductProviders>(context, listen: false)
-                      .addProducts(
-                          i, _name.text, _price.text, widget.currentCategory);
+                      .addProducts(this.url, _name.text, _price.text,
+                          widget.currentCategory);
                   Navigator.of(context).pop();
                 }
               },
