@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/models/cart.dart';
 import 'package:miu_food_court/providers/cart_provider.dart';
@@ -121,8 +120,8 @@ class _CartCardState extends State<CartCard> {
                 height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: FileImage(
-                      File(widget.cart.picture),
+                    image: NetworkImage(
+                      widget.cart.picture,
                     ),
                     fit: BoxFit.fill,
                   ),
@@ -152,11 +151,22 @@ class _CartCardState extends State<CartCard> {
                       children: [
                         IconButton(
                           onPressed: () {
-                            widget.cart.sugar = Provider.of<CartProviders>(
-                                    context,
-                                    listen: false)
-                                .sugarCount(widget.index);
-                            _showSettingsPanel();
+                            if (widget.cart.category == 'Snacks' ||
+                                widget.cart.category == 'Soft Drinks') {
+                              Provider.of<CartProviders>(context, listen: false)
+                                  .editProducts(
+                                widget.index,
+                                widget.cart.quantity,
+                                this._price(),
+                                '',
+                              );
+                            } else {
+                              widget.cart.sugar = Provider.of<CartProviders>(
+                                      context,
+                                      listen: false)
+                                  .sugarCount(widget.index);
+                              _showSettingsPanel();
+                            }
                           },
                           icon: Icon(
                             Icons.edit_outlined,
