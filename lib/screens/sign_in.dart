@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/providers/product_provider.dart';
 import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:miu_food_court/shared/widgets/loading.dart';
 import 'package:miu_food_court/shared/widgets/top_bar.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:provider/provider.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -57,7 +59,7 @@ class _SignInState extends State<SignIn> {
                               ),
                             ),
                             validator: (val) =>
-                                val!.isEmpty ? 'Enter an email' : null,
+                                val!.isEmpty ? 'Enter the email' : null,
                           ),
                           const SizedBox(
                             height: 20.0,
@@ -87,23 +89,27 @@ class _SignInState extends State<SignIn> {
                           ),
                           ElevatedButton(
                             onPressed: () async {
-                              dynamic result = await _auth.signin(
-                                  email: emailController.text.trim(),
-                                  password: passwordController.text);
-                              if (!result) {
-                                setState(() {
-                                  this.errmsg =
-                                      'Cann\'t Signin with those credintials';
-                                  loading = false;
-                                });
-                              } else {
-                                setState(() {
-                                  this.errmsg = '';
-                                  loading = true;
-                                });
-
-                                Navigator.of(context).pushNamedAndRemoveUntil(
-                                    '/adminhome', (route) => false);
+                              if (_formkey.currentState!.validate()) {
+                                dynamic result = await _auth.signin(
+                                    email: emailController.text.trim(),
+                                    password: passwordController.text);
+                                if (!result) {
+                                  setState(() {
+                                    this.errmsg =
+                                        'Can\'t Signin with those credintials';
+                                    loading = false;
+                                  });
+                                } else {
+                                  setState(() {
+                                    this.errmsg = '';
+                                    loading = true;
+                                  });
+                                  await Provider.of<ProductProviders>(context,
+                                          listen: false)
+                                      .load();
+                                  Navigator.of(context).pushNamedAndRemoveUntil(
+                                      '/adminhome', (route) => false);
+                                }
                               }
                             },
                             child: Text(
@@ -129,7 +135,7 @@ class _SignInState extends State<SignIn> {
                                   if (result == false)
                                     setState(() {
                                       this.errmsg =
-                                          'Cann\'t Signin with those credintials';
+                                          'Can\'t Signin with those credintials';
                                       loading = false;
                                     });
                                   else {
@@ -137,6 +143,9 @@ class _SignInState extends State<SignIn> {
                                       this.errmsg = '';
                                       loading = true;
                                     });
+                                    await Provider.of<ProductProviders>(context,
+                                            listen: false)
+                                        .load();
                                     Navigator.of(context)
                                         .pushNamedAndRemoveUntil(
                                             '/home', (route) => false);
