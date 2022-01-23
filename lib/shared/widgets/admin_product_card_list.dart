@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:miu_food_court/models/product.dart';
@@ -21,20 +22,27 @@ class CardList extends StatefulWidget {
 
 class _CardListState extends State<CardList> {
   File? image;
-  late String i;
-  Future<File> saveImagePermanently(String imagePath) async {
+  String? i;
+  late String url;
+  Future saveImagePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
     final name = basename(imagePath);
+    print(name);
     final image = File('${directory.path}/$name');
     i = image.path;
+    Reference storageReference =
+        FirebaseStorage.instance.ref().child("Products Images/$name");
+    final UploadTask uploadTask = storageReference.putFile(File(imagePath));
+    final TaskSnapshot downloadUrl = (await uploadTask);
+    url = await downloadUrl.ref.getDownloadURL();
+
     return File(imagePath).copy(image.path);
   }
 
   _openGallery(BuildContext context) async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image == null) i = widget.data.picture;
-
-    final imagePermanent = await saveImagePermanently(image!.path);
+    if (image == null) return;
+    final imagePermanent = await saveImagePermanently(image.path);
     // final imageTemporary = File(image.path);
     setState(() {
       // this.image = imageTemporary;
@@ -66,8 +74,8 @@ class _CardListState extends State<CardList> {
             height: 200,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: FileImage(
-                  File(widget.data.picture),
+                image: NetworkImage(
+                  widget.data.picture,
                 ),
                 fit: BoxFit.fill,
               ),
@@ -101,6 +109,7 @@ class _CardListState extends State<CardList> {
                                 context,
                                 listen: false)
                             .productPicture(widget.index);
+                        this.url = widget.data.picture;
                         widget.data.name = Provider.of<ProductProviders>(
                                 context,
                                 listen: false)
@@ -130,8 +139,9 @@ class _CardListState extends State<CardList> {
                         Icons.delete_outlined,
                         color: red,
                       ),
-                      onPressed: () {
-                        Provider.of<ProductProviders>(context, listen: false)
+                      onPressed: () async {
+                        await Provider.of<ProductProviders>(context,
+                                listen: false)
                             .removeProducts(widget.index);
                       },
                     ),
@@ -192,11 +202,12 @@ class _CardListState extends State<CardList> {
         primary: red,
         minimumSize: Size.fromHeight(40),
       ),
-      onPressed: () {
+      onPressed: () async {
         if (_formkey.currentState!.validate()) {
-          Provider.of<ProductProviders>(context, listen: false).editProducts(
+          await Provider.of<ProductProviders>(context, listen: false)
+              .editProducts(
             widget.index,
-            this.i,
+            this.url,
             widget.data.name,
             widget.data.price,
             widget.data.category,
