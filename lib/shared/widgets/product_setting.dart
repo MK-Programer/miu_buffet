@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/models/product.dart';
 import 'package:miu_food_court/providers/cart_provider.dart';
+import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:provider/provider.dart';
 
@@ -63,15 +64,20 @@ class _ProductSettingState extends State<ProductSetting> {
                 fontSize: fontSize18,
               ),
             ),
-            onPressed: () {
+            onPressed: () async {
+              AuthService _auth = AuthService();
+              String result = await _auth.getPref();
               // print(widget.data.picture);
               Provider.of<CartProviders>(context, listen: false).addProducts(
+                result,
+                widget.data.pid,
                 widget.data.picture,
                 widget.data.name,
                 _sugarCount,
                 widget.quantity,
                 widget.data.price,
                 widget.data.price * widget.quantity,
+                widget.data.category,
               );
               Navigator.pop(context);
             },
