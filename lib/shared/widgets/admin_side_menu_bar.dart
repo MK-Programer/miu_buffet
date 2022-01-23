@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:miu_food_court/providers/orders_provider.dart';
 import 'package:miu_food_court/providers/product_provider.dart';
+import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +16,8 @@ class _AdminSideBarState extends State<AdminSideBar> {
     1: '/adminaddproduct',
     2: '/editprofile',
     3: '/viewofficers',
+    4: '/',
+    5: '/vieworders',
   };
 
   @override
@@ -48,6 +52,24 @@ class _AdminSideBarState extends State<AdminSideBar> {
             ),
             onTap: () {
               routeHandler(0);
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.view_list_outlined,
+            ),
+            title: Align(
+              child: Text(
+                'View Orders',
+                style: TextStyle(
+                  fontSize: fontSize18,
+                ),
+              ),
+              alignment: alignment,
+            ),
+            onTap: () async {
+              await Provider.of<OrderProviders>(context, listen: false).load();
+              routeHandler(5);
             },
           ),
           ListTile(
@@ -115,8 +137,10 @@ class _AdminSideBarState extends State<AdminSideBar> {
               alignment: alignment,
             ),
             onTap: () async {
+              await AuthService().signout();
               await Provider.of<ProductProviders>(context, listen: false)
-                  .saveProduct();
+                  .destructList();
+              routeHandler(4);
             },
           ),
         ],
