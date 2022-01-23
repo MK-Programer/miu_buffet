@@ -1,13 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:miu_food_court/models/product.dart';
-import 'package:miu_food_court/services/auth.dart';
-import 'package:miu_food_court/services/data_service.dart';
-
-AuthService auth = AuthService();
-DatabaseService db = DatabaseService(uid: auth.getPref());
 
 class ProductProviders extends ChangeNotifier {
+  int pid = 0;
   final CollectionReference hotDrinksCollection =
       FirebaseFirestore.instance.collection('Hot Drinks');
 
@@ -22,47 +19,69 @@ class ProductProviders extends ChangeNotifier {
     return products;
   }
 
-  void addProducts(String picture, String name, String price, String category) {
-    Product product = new Product(picture, name, price, category);
-    products.add(product);
-    notifyListeners();
-  }
+  load() async {
+    QuerySnapshot querySnapshot1 = await hotDrinksCollection.get();
+    QuerySnapshot querySnapshot2 = await softDrinksCollection.get();
+    QuerySnapshot querySnapshot3 = await snacksCollection.get();
+    var result1 =
+        querySnapshot1.docs.map((doc) => {'data': doc.data(), 'id': doc.id});
 
-  // Future<void> readProduct() async {
-  //   QuerySnapshot querySnapshot1 = await hotDrinksCollection.get();
-  //   QuerySnapshot querySnapshot2 = await softDrinksCollection.get();
-  //   QuerySnapshot querySnapshot3 = await snacksCollection.get();
-  //   // Get data from docs and convert map to List
-  //   // final data1 = querySnapshot1.docs.map((doc) => doc.data()).toList();
-  //   // final data2 = querySnapshot1.docs.map((doc) => doc.data()).toList();
-  //   // final data3 = querySnapshot1.docs.map((doc) => doc.data()).toList();
-  //   final allData =
-  //       List.from(querySnapshot1.docs.map((doc) => doc.data()).toList());
-  //   for (var element in allData) {
-  //     print(element);
-  //     products.add(element);
-  //     notifyListeners();
-  //   }
-  // }
+    var result2 =
+        querySnapshot2.docs.map((doc) => {'data': doc.data(), 'id': doc.id});
 
-  Future<void> saveProduct() async {
-    for (int i = 0; i < products.length; i++) {
-      await FirebaseFirestore.instance
-          .collection('${products[i].category}')
-          .doc()
-          .set(
-        {
-          'picture': products[i].picture,
-          'name': products[i].name,
-          'price': products[i].price,
-        },
-      );
+    var result3 =
+        querySnapshot3.docs.map((doc) => {'data': doc.data(), 'id': doc.id});
+
+    // combine the result of the 3 results in allData
+    var allData = []..addAll(result1)..addAll(result2)..addAll(result3);
+
+    for (var element in allData) {
+      Product product = new Product.fromJson(element);
+      products.add(product);
+      notifyListeners();
     }
   }
 
-  void removeProducts(int index) {
-    products.removeAt(index);
+  Future<void> addProducts(
+      String picture, String name, String price, String category) async {
+    Product product = new Product(pid, picture, name, price, category);
+    products.add(product);
+
+    await FirebaseFirestore.instance
+        .collection('${product.category}')
+        .doc(this.pid.toString())
+        .set(
+      {
+        'pid': this.pid.toString(),
+        'picture': product.picture,
+        'name': product.name,
+        'price': product.price,
+        'category': product.category,
+      },
+    );
+    // print('pid1 $pid');
+    this.pid++;
     notifyListeners();
+  }
+
+  destructList() {
+    products.clear();
+  }
+
+  Future<void> removeProducts(int index) async {
+    try {
+      print(products[index].pid);
+      print(products[index].category);
+      await FirebaseFirestore.instance
+          .collection('${products[index].category}')
+          .doc('${products[index].pid}')
+          .delete();
+      products.removeAt(index);
+
+      notifyListeners();
+    } catch (e) {
+      print('error while deleting ${e.toString()}');
+    }
   }
 
   int getCatProductCount(String category) {
@@ -73,12 +92,25 @@ class ProductProviders extends ChangeNotifier {
     return cnt;
   }
 
-  void editProducts(
-      int index, String picture, String name, String price, String category) {
+  Future<void> editProducts(int index, String picture, String name,
+      String price, String category) async {
     products[index].name = name;
     products[index].price = price;
     products[index].picture = picture;
     products[index].category = category;
+
+    await FirebaseFirestore.instance
+        .collection('${products[index].category}')
+        .doc(products[index].pid.toString())
+        .update(
+      {
+        'pid': products[index].pid,
+        'picture': products[index].picture,
+        'name': products[index].name,
+        'price': products[index].price,
+        'category': products[index].category,
+      },
+    );
     notifyListeners();
   }
 
