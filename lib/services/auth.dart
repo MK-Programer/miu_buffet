@@ -25,11 +25,12 @@ class AuthService {
     return _auth.authStateChanges().map(_userFromFirebaseUser);
   }
 
-  setPref(String uid) async {
+  setPref(String uid, dynamic email) async {
     try {
       // print('1 $uid');
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('uid', uid.toString());
+      await prefs.setString('email', email.toString());
       // print('2 ${uid.toString()}');
     } catch (e) {
       print('err ${e.toString()}');
@@ -40,6 +41,15 @@ class AuthService {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       return prefs.getString('uid');
+    } catch (e) {
+      print('err ${e.toString()}');
+    }
+  }
+
+  getPrefEmail() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('email');
     } catch (e) {
       print('err ${e.toString()}');
     }
@@ -59,7 +69,8 @@ class AuthService {
           await _auth.signInWithCredential(authCredential);
 
       User? user = userCredential.user;
-      await setPref(user!.uid);
+      await setPref(user!.uid, user.email);
+
       if (!user.email!.contains("@miuegypt.edu.eg")) return false;
       DatabaseService db = DatabaseService(uid: user.uid);
       phone = await db.getPhone();
@@ -85,7 +96,7 @@ class AuthService {
       UserCredential? userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User? user = userCredential.user;
-      await setPref(user!.uid);
+      await setPref(user!.uid, user.email);
       return true;
     } on FirebaseAuthException catch (e) {
       print('err ${e.toString()}');
