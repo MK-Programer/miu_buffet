@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:miu_food_court/providers/cart_provider.dart';
+import 'package:miu_food_court/providers/product_provider.dart';
 import 'package:miu_food_court/services/auth.dart';
 import 'package:miu_food_court/shared/variables/constants.dart';
 import 'package:provider/provider.dart';
@@ -122,6 +123,8 @@ class _SideBarState extends State<SideBar> {
               alignment: alignment,
             ),
             onTap: () async {
+              await Provider.of<ProductProviders>(context, listen: false)
+                  .destructList();
               await _auth.signout();
               routeHandler(5);
             },

@@ -58,13 +58,17 @@ class AuthService {
   Future signinWithGoogle() async {
     try {
       await _googleSignIn.signOut();
+      // hold entered data
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
+      // return auth token
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount!.authentication;
       final AuthCredential authCredential = GoogleAuthProvider.credential(
           idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken);
+          accessToken:
+              googleSignInAuthentication.accessToken); // access google services
+
       UserCredential? userCredential =
           await _auth.signInWithCredential(authCredential);
 
