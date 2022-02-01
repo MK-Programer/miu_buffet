@@ -1,7 +1,6 @@
 # MIU-Buffet
 MIU Buffet is a mobile application that tends to gather all the catering services exists in MIU in one place (app). 
-![Screenshot_1642984408](https://user-images.githubusercontent.com/77085680/151892516-94ff797a-d923-4261-9a3d-a0925cddfe74.png)
-:-------------------------:|:-------------------------:
+![Screenshot_1642984408](https://user-images.githubusercontent.com/77085680/151892516-94ff797a-d923-4261-9a3d-a0925cddfe74.png)|
 ![Screenshot_1642984525](https://user-images.githubusercontent.com/77085680/151892519-74866ace-7b4b-43e2-a160-a5692c4b1834.png)
 
 ![Screenshot_1642984531](https://user-images.githubusercontent.com/77085680/151892522-7c91700d-9d1d-44a4-abec-3ad4402667a0.png)
